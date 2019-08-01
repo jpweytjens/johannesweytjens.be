@@ -4,10 +4,6 @@ title: About
 description: More information about myself
 ---
 
-<p>Lorem ipsum</p>
-
-<p>My twitter handle is jpweytjens</p>
-
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus justo vitae tellus bibendum tristique. Morbi gravida vitae sem quis dictum. Praesent lacinia erat non bibendum pellentesque. Praesent commodo nisl vitae mi volutpat, vel efficitur turpis bibendum. Fusce mauris ex, sollicitudin malesuada mauris a, fringilla egestas massa. Aliquam ut ullamcorper purus, vitae cursus nibh. Vestibulum tempor feugiat orci, in aliquet dolor ullamcorper venenatis. Suspendisse posuere purus a porta mollis.
 </p>
@@ -26,5 +22,4 @@ Vivamus consequat condimentum pharetra. Vivamus vitae turpis risus. Mauris mauri
 
 <p>
 Vestibulum ut efficitur ligula. Sed interdum mauris eget odio blandit faucibus. Etiam eu risus laoreet, auctor metus eu, dapibus lorem. Morbi a sollicitudin orci, nec tincidunt mauris. Mauris eget blandit sapien. Aliquam in porttitor risus. Proin lobortis dictum viverra. Morbi non sapien iaculis, gravida augue nec, porta leo. Mauris dignissim lorem venenatis magna eleifend ornare id sed sem. Vivamus interdum diam at augue suscipit, et auctor massa convallis. Fusce blandit luctus velit, nec pharetra dui suscipit ac. 
-
 </p>
