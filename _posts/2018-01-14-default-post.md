@@ -72,22 +72,18 @@ Text links are set to the same color as the rest of the base content, as not to 
 
 **Code Snippets**
 
-<pre class="code">
-    library(lattice)
-    x <- mtcars$wt
-    y <- mtcars$mpg
-    xyplot(y ~ x, xlab="Car weight (lb/1000)", ylab="Miles per gallon of fuel",
-    par.settings = list(axis.line = list(col="transparent")),
-    panel = function(x, y,...) { 
-    panel.xyplot(x, y, col=1, pch=16)
-    panel.rug(x, y, col=1, x.units = rep("snpc", 2), y.units = rep("snpc", 2), ...)})
-</pre>
+{% highlight python %}
+    import numpy as np
+
+    x = np.arange(0, 10, 0.1)
+    y = np.sin(x)
+{% endhighlight %}
 
 **Math Equations**
 
 ET-Jekyll uses MathJax for placing mathematical equations inline within your content.
 
-When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+When \\(a \ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\) and they are
 
 $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 

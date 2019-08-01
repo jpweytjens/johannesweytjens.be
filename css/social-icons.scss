@@ -1,0 +1,52 @@
+$icon-transition-time: 1.0s;
+$researchgate-color: #00d09d;
+$google-scholar-color: #4788ee;
+$twitter-color: #00aced;
+$github-color: #343434;
+$linkedin-color: #0073a4;
+$facebook-color: #3d5b99;
+$osf-color: #27b4eb;
+$orcid-color: #a6ce39;
+
+@mixin social-media-icon($color, $transition){
+    -webkit-transition: $transition;
+    -o-transition: $transition;
+    -ms-transition: $transition;
+    -moz-transition: $transition;
+    transition: $transition;
+    &:hover{
+        color: $color;
+    }
+}
+
+.fa-twitter {
+    padding: 5px;
+    @include social-media-icon($twitter-color, $icon-transition-time);
+}
+
+.fa-github {
+    padding: 5px;
+    @include social-media-icon($github-color, $icon-transition-time);
+}
+
+.ai-researchgate {
+    padding: 5px;
+    @include social-media-icon($researchgate-color, $icon-transition-time);
+}
+
+.ai-google-scholar {
+    padding: 5px;
+    @include social-media-icon($google-scholar-color, $icon-transition-time);
+}
+
+.ai-osf {
+    padding: 5px;
+    @include social-media-icon($osf-color, $icon-transition-time);
+}
+
+.ai-orcid {
+    padding: 5px;
+    @include social-media-icon($orcid-color, $icon-transition-time);
+}
+
+

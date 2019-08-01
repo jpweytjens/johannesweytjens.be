@@ -1,15 +1,14 @@
 ###########
-# site.title
 
-title: ET-Jekyll Theme
-description: A minimal Jekyll theme inspired by Tufte CSS
-url: https://et-jekyll.netlify.com/
+title: Johannes Weytjens
+description: Johannes Weytjens - personal website
+url: https://jpweytjens.be
 
 
-#########################
-# more settings
+###########
 
 markdown: kramdown
+highlighter: rouge
 
 compress_html:
   clippings: all
@@ -22,11 +21,11 @@ compress_html:
 
 sass:
   sass_dir: css
-  style:    compressed
+  style: compressed
 
-baseurl: https://et-jekyll.netlify.com/
+baseurl: ""
 permalink: pretty
-timezone: America/New_York
+timezone: Europe/Brussels
 future: false
 
 exclude:

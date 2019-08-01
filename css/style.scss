@@ -1,5 +1,5 @@
 ---
-title: Main ET-Jekyll CSS
+title: Johannes Weytjens CSS - bases on ET Jekyll
 ---
 
 /**************************************
@@ -7,6 +7,7 @@ title: Main ET-Jekyll CSS
 /**************************************/
 @charset "UTF-8";
 $media-tablet : '(max-width: 850px)';
+@import "social-icons";
 
 /**************************************
     $DEFAULT ELEMENTS
@@ -19,7 +20,8 @@ table {
     width: 100%;
 
     th, td {
-        font-weight: bold;
+        font-weight: normal;
+        font-size: 85%;
         padding: 0;
     }
 
@@ -32,12 +34,13 @@ table {
     $DEFAULT CLASSES
 /**************************************/
 /*p*/.subtitle {
-    font-size: 1.8rem;
+    font-size: 1.0rem;
     font-style: italic;
 }
 
 /*p*/.sans {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+    font-family: public-sans, Arial, Helvetica, sans-serif;
+    font-weight: bold;
     letter-spacing: .03em;
 }
 
@@ -62,7 +65,7 @@ table {
 /*span*/.sidenote {
     &:before {
         content: counter(sidenote-counter) " ";
-        font-family: et-book-roman-old-style;
+        font-family: public-sans-regular;
         position: relative;
         top: -0.5rem;
         vertical-align: baseline;
@@ -74,7 +77,7 @@ table {
 
     &:after {
         content: counter(sidenote-counter);
-        font-family: et-book-roman-old-style;
+        font-family: public-sans-regular;
         font-size: 80%;
         left: 0.1rem;
         position: relative;
@@ -129,7 +132,7 @@ nav {
     .menu-icon {
         cursor: pointer;
         display: none;
-        text-decoration: underline;
+        // text-decoration: underline;
     }
 
     .menu-btn {
@@ -137,6 +140,7 @@ nav {
     }
 
     .menu-btn:checked ~ .site-nav {
+
         display: block;
     }
 
@@ -152,11 +156,27 @@ nav {
 
         a,a:visited {
             text-decoration: none;
+            color: #222;
 
             &:hover {
-                color: rgb(220, 40, 40);
+                color: #47a0e1;
             }
         }
+    }
+}
+
+/**************************************
+    $BLOG
+/**************************************/
+
+ul.blog-post {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    a,a:visited {
+        text-decoration: none;
+        color: #629cc6;
     }
 }
 
@@ -195,15 +215,4 @@ nav {
             }
         }
     }
-
-    /*span*/.marginnote,
-    /*span*/.sidenote {
-        display: block;
-        margin-top: 1rem;
-        position: relative;
-        right: auto;
-        top: auto;
-        width: 100%;
-    }
-
 }

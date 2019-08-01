@@ -1,10 +1,18 @@
 ---
 layout: default
-title: ET-Jekyll Theme
+title: 
 ---
 
-<p>ET-Jekyll theme is based off of <a href="http://www.daveliepmann.com">Dave Liepmann's</a> awesome <a href="https://edwardtufte.github.io/tufte-css/">Tufte CSS</a> - which takes it's style and inspiration from the wonderful book and handout designs of <a href="https://www.edwardtufte.com/tufte/">Edward Tufte</a>.</p>
+<p>A small website to present myself.</p>
 
-<p>The differences are subtle when comparing my variation to Tufte CSS, but these changes were made out of personal preference and are not in any way "better". If you prefer the <a href="https://edwardtufte.github.io/tufte-css/">original CSS styling</a> - please use it!</p>
+<p>I studied physics and astronomy and I'm currently pursuing a PhD in labour economics with Stijn Baert.</p>
 
-<p>For more information, check out the <a href="https://et-jekyll.netlify.com/et-jekyll-theme/">detailed example page</a></p>
+<p>My main interests are discrimination and machine learning methods in economics. In my spare time I like reading up on sociophysics, design and statistical methods.</p>
+
+{% for item in site.data.settings.social %}
+    <a href="{{ item.link }}" class="menu-link" target="_blank"><i class="fab fa-{{ item.icon }}" aria-hidden="true"></i></a>
+{% endfor %}
+{% for item in site.data.settings.academic %}
+<a href="{{ item.link }}" class="menu-link" target="_blank"><i class="ai ai-{{ item.icon }}" aria-hidden="true"></i></a>
+{% endfor %}
+
