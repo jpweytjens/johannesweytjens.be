@@ -3,12 +3,29 @@ layout: default
 title: 
 ---
 
-<p>I'm currently pursuing a PhD in labour economics with Stijn Baert.</p>
+<ul class="blog-post">
+
+<p>
+<span class="marginnote"><img src="images/profile.jpg" alt="Johannes"/>
+</p>
+
+<p>
+I'm a PhD student in labour economics at the <a href="https://www.ugent.be/eb/en">Faculty of Economics and Business Administration</a> of <a href="https://www.ugent.be/en">Ghent University</a>. I'm working on moderators and mechanims of hiring discrimination under the supervision of <a href="https://users.ugent.be/~sbaert/">Stijn Baert</a>.
+</p>
+
+<p>
+I have a background in physics and astronomy. 
+</p>
+
+<p style="padding-bottom: 2cm">
+This website is a fork of the <a href="https://github.com/bradleytaunt/ET-Jekyll">ET Jekyll</a> theme. The design is heavily inspired by <a href="https://www.edwardtufte.com/tufte/">Edward Tufte</a>.
+</p>
+</ul>
 
 {% for item in site.data.settings.social %}
-    <a href="{{ item.link }}" class="menu-link" target="_blank"><i class="fab fa-{{ item.icon }}" aria-hidden="true"></i></a>
+    <a href="{{ item.link }}" class="menu-link" target="_blank"><i class="fab fa-{{ item.icon }} fa-lg" aria-hidden="true"></i></a>
 {% endfor %}
 {% for item in site.data.settings.academic %}
-<a href="{{ item.link }}" class="menu-link" target="_blank"><i class="ai ai-{{ item.icon }}" aria-hidden="true"></i></a>
+<a href="{{ item.link }}" class="menu-link" target="_blank"><i class="ai ai-{{ item.icon }} ai-lg" aria-hidden="true"></i></a>
 {% endfor %}
 
