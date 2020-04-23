@@ -1,9 +1,8 @@
 ---
 layout: default
-title: 
+title:
 ---
 
-<ul class="blog-post">
 
 <p>
 <span class="marginnote"><img src="images/profile.jpg" alt="Johannes"/>
@@ -13,16 +12,15 @@ title:
 I'm a PhD student in labour economics at the <a href="https://www.ugent.be/eb/en">Faculty of Economics and Business Administration</a> of <a href="https://www.ugent.be/en">Ghent University</a>. My main research topic is moderators and mechanisms of hiring discrimination under the supervision of <a href="https://users.ugent.be/~sbaert/">Stijn Baert</a>.
 </p>
 
-
 <p style="padding-bottom: 1cm; font-size: medium">
 This website is a fork of the <a href="https://github.com/bradleytaunt/ET-Jekyll">ET Jekyll</a> theme.<br> The design is heavily inspired by <a href="https://www.edwardtufte.com/tufte/">Edward Tufte</a>.
 </p>
-</ul>
 
+<ul class="icons">
 {% for item in site.data.settings.social %}
     <a href="{{ item.link }}" class="menu-link" target="_blank"><i class="fab fa-{{ item.icon }} fa-lg" aria-hidden="true"></i></a>
 {% endfor %}
 {% for item in site.data.settings.academic %}
 <a href="{{ item.link }}" class="menu-link" target="_blank"><i class="ai ai-{{ item.icon }} ai-lg" aria-hidden="true"></i></a>
 {% endfor %}
-
+</ul>
