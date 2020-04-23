@@ -115,8 +115,13 @@ table {
 }
 
 .inner-container {
-    padding-top: 4rem;
+    padding-top: 2rem;
     width: 55%;
+}
+
+.publication-container {
+    padding-top: 2rem;
+    width: 75%;
 }
 
 .bottom-footer {
@@ -166,17 +171,21 @@ nav {
 }
 
 /**************************************
-    $BLOG
+    $ICONS
 /**************************************/
 
-ul.blog-post {
+ul.icons {
     list-style: none;
     margin: 0;
     padding: 0;
 
     a,a:visited {
         text-decoration: none;
-        color: #629cc6;
+        color: #222;
+    }
+
+    a,a:hover {
+        text-decoration: none;
     }
 }
 
@@ -211,6 +220,14 @@ ul.blog-post {
                 a,a:visited {
                     display: block;
                     width: 100%;
+                    text-decoration: none;
+                    color: #222;
+
+                a,a:hover {
+                    text-decoration: none;
+                    color: #629cc6;
+                }
+
                 }
             }
         }
