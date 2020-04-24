@@ -137,7 +137,6 @@ nav {
     .menu-icon {
         cursor: pointer;
         display: none;
-        // text-decoration: underline;
     }
 
     .menu-btn {
@@ -199,6 +198,11 @@ ul.icons {
     }
 
     .inner-container {
+        padding-top: 2rem;
+        width: 100%;
+    }
+
+    .publication-container {
         padding-top: 2rem;
         width: 100%;
     }
