@@ -5,3 +5,5 @@ social:
 academic:
  - {icon: 'orcid', link: 'https://orcid.org/0000-0002-2748-1524'}
  - {icon: 'osf', link: 'https://osf.io/v6wks/'}
+ - {icon: 'ideas-repec', link: 'https://authors.repec.org/pro/pwe473/'}
+ - {icon: 'google-scholar', link: 'https://scholar.google.com/citations?hl=en&user=R9eBhyoAAAAJ'}

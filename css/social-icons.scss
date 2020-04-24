@@ -7,6 +7,7 @@ $linkedin-color: #0073a4;
 $facebook-color: #3d5b99;
 $osf-color: #27b4eb;
 $orcid-color: #a6ce39;
+$ideas-repec-color: #fc0000;
 
 @mixin social-media-icon($color, $transition){
     -webkit-transition: $transition;
@@ -49,4 +50,7 @@ $orcid-color: #a6ce39;
     @include social-media-icon($orcid-color, $icon-transition-time);
 }
 
-
+.ai-ideas-repec {
+    padding: 5px;
+    @include social-media-icon($ideas-repec-color, $icon-transition-time);
+}
