@@ -1,4 +1,3 @@
-from concurrent.futures import ProcessPoolExecutor
 from functools import partial
 
 import pandas as pd
@@ -99,19 +98,15 @@ def read_parquet(
     else:
         chunksize = 1
 
-    # if parallel use map, if show_progress use tqdm
     if parallel is True:
         _read_parquet_map = partial(_read_parquet, columns=columns)
-        if show_progress is True:
-            dfs = process_map(
-                _read_parquet_map,
-                files,
-                max_workers=n_concurrent_files,
-                chunksize=chunksize,
-            )
-        elif show_progress is False:
-            pool = ProcessPoolExecutor(max_workers=n_concurrent_files)
-            dfs = pool.map(_read_parquet_map, files, chunksize=chunksize)
+        dfs = process_map(
+            _read_parquet_map,
+            files,
+            max_workers=n_concurrent_files,
+            chunksize=chunksize,
+            disabled=not show_progress,
+        )
 
     else:
         dfs = [_read_parquet(file) for file in tqdm(files, disabled=not show_progress)]
