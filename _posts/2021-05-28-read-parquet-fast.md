@@ -6,13 +6,20 @@ permalink: read-multiple-files-with-pandas-fast/
 date: 2021-08-04
 ---
 
-Pandas is a great tool if your dataset satisfies two criteria. It's a single file which will fit in memory. If both of these are not the case, you need to rely on <a href="https://github.com/pandas-dev/pandas/issues/37955">external packages</a>. If your dataset does not fit in memory for example, there's a <a href="https://pandas.pydata.org/docs/ecosystem.html#ecosystem-out-of-core">list of libraries</a> such as <a href="https://docs.dask.org/en/latest/">dask</a> and <a href="https://github.com/modin-project/modin">modin</a> that provide methods for both out-of-memory processing and parallel loading of large datasets with a pandas inspired API. 
+Pandas is an excellent choice for handling datasets that meet the following conditions:
 
-These frameworks are great when analyzing TB's of data on large clusters, but are overkill when your dataset is small enough to fit in memory, but is just slow to load. Loading data can be slow when e.g. your dataset is spread across multiple files that need to concatenated. Depending on your exact needs for your analysis, these frameworks <a href="https://modin.readthedocs.io/en/latest/supported_apis/index.html">do not currently support the entire pandas API</a> . 
+   * The dataset is stored in a single file.
+   * The dataset fits within the available memory.
 
-So, what is the best way to speed up pandas with larger datasets that are too small to fully benefit from frameworks such as Dask or Modin? Once the data is loaded into memory, you can parallelize some common operations such as `apply` and `groupby.apply` with <a href="https://github.com/nalepae/pandarallel">pandarallel</a>. Other tasks that can be easily split in independent parts, can be parallelized with <a href="https://github.com/zeehio/parmap">parmap</a>, a convenient wrapper using `multiprocessing`'s `Pool` to provide a parallel `map` function. What is still missing is a parallel method to read multiple files with pandas, regardless of the filetype. The code below provides such as function for parquet files, but the general idea can be applied to any <a href="https://pandas.pydata.org/docs/user_guide/io.html">filetype supported by pandas</a>.
+If these conditions are not met, additional packages may be necessary for efficient data processing. For datasets that do not fit in memory, libraries such as  <a href="https://docs.dask.org/en/latest/">Dask</a> and <a href="https://github.com/modin-project/modin">Modin</a> provide out-of-memory processing and parallel loading capabilities, along with a pandas-inspired API.
 
-The function below can read a dataset, split across multiple parquet.gz files by reading the individual files in  parallel and concatenating them afterwards. The code can easily be adopted to load other filetypes. The only requirements are `pandas`, `tqdm` and a multicore processor. The code uses the built in Python module `concurrent.futures` modules and adds an optional <a href="https://github.com/tqdm/tqdm">`tqdm`</a> progress bar and some minor optimizations, inspired by some StackOverflow threads, to further increase speed.
+These frameworks are well-suited for processing terabytes of data on large clusters but may be excessive for datasets that fit in memory but take a long time to load. Slow loading can occur when datasets are spread across multiple files that need to be concatenated. Moreover, these frameworks may not support the entire pandas API, depending on the specific analysis requirements.
+
+To accelerate pandas operations with larger datasets that do not fully benefit from Dask or Modin, consider using <a href="https://github.com/nalepae/pandarallel">pandarallel</a> for parallelizing both apply and groupby.apply. Additionally,  <a href="https://github.com/zeehio/parmap">parmap</a>, a convenient wrapper around multiprocessing's Pool, provides a parallel map function for tasks that can be divided into independent parts.
+
+However, a parallel method for reading multiple files with pandas, regardless of file type, is still needed. The following function demonstrates how to read a dataset split across multiple parquet.gz files by loading individual files in parallel and concatenating them afterward. This approach can be adapted for other <a href="https://pandas.pydata.org/docs/user_guide/io.html">filetype supported by pandas</a>.
+
+The only requirements for this function are pandas, tqdm, and a multicore processor. The code utilizes Python's built-in concurrent.futures module, and incorporates an optional tqdm progress bar and minor optimizations inspired by StackOverflow discussions to further improve performance.
 
 {% highlight python %}
 {% include code_snippets/read_parquet_fast.py %}
