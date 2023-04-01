@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Speed up slow computations that output pandas' DataFrames
+title: Cache slow computations that output pandas DataFrames
 description: A decorator to automatically save and load output from slow functions that return DataFrames.
 permalink: load-else-save/
 date: 2023-04-01
