@@ -1,3 +1,6 @@
+import matplotlib.pyplot as plt
+
+
 def _collect_artists(ax):
     """
     Collect relevant artists from an axis.

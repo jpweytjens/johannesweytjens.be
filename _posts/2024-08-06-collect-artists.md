@@ -32,12 +32,8 @@ This function first checks if the `plot` parameter is a figure or an axis. If it
 
 To use these functions, you simply call `collect_artists` when saving your figure:
 
-```python
-fig.savefig(
-    filename,
-    bbox_extra_artists=collect_artists(fig),
-    bbox_inches="tight",
-)
-```
+{% highlight python %}
+{% include code_snippets/save_artists.py %}
+{% endhighlight %}
 
 This ensures that all the collected artists are included in the bounding box calculation, resulting in a well-cropped image without cutting off important elements.

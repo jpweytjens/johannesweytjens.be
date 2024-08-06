@@ -1,3 +1,6 @@
+import matplotlib as mpl
+
+
 def collect_artists(plot):
     """
     Collect relevant artists from a figure or axis.
