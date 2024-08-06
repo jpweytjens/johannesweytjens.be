@@ -2,7 +2,6 @@ from functools import partial
 
 import pandas as pd
 import pyarrow as pa
-from tqdm.auto import tqdm
 from tqdm.contrib.concurrent import process_map
 
 

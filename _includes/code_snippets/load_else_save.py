@@ -1,12 +1,13 @@
 import functools
 import hashlib
 import inspect
-import pathlib
-import textwrap
-import pandas as pd
 import logging
+import pathlib
+import re
+import textwrap
 
 import black
+import pandas as pd
 
 logging.basicConfig(level="INFO")
 
