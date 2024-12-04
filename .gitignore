@@ -3,3 +3,4 @@ _drafts/
 .jekyll-metadata
 Gemfile.lock
 .DS_Store
+.ipynb_checkpoints
