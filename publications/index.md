@@ -5,8 +5,6 @@ description: Publications
 ---
 
 ### Work in progress
-* Taming the Zoo of Consumption Responses to Labour Income Changes<br>
-(with Kris Boudt, Koen Schoors and Milan van den Heuvel)<br>
 * Myopic Loss Aversion and the Excess Consumption Puzzle<br>
 (with Milan van den Heuvel and Koen Schoors)
 
