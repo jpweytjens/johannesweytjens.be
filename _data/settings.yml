@@ -1,7 +1,9 @@
 social:
+ - {icon: 'linkedin', link: 'https://www.linkedin.com/in/johannes-weytjens-47b265105/'}
+ - {icon: 'bluesky', link: 'https://bsky.app/profile/peregrinus.be'}
  - {icon: 'twitter', link: 'https://twitter.com/jpweytjens'}
  - {icon: 'github', link: 'https://github.com/jpweytjens'}
-
+ 
 academic:
  - {icon: 'orcid', link: 'https://orcid.org/0000-0002-2748-1524'}
  - {icon: 'osf', link: 'https://osf.io/v6wks/'}

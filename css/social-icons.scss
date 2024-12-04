@@ -8,16 +8,23 @@ $facebook-color: #3d5b99;
 $osf-color: #27b4eb;
 $orcid-color: #a6ce39;
 $ideas-repec-color: #fc0000;
+$bluesky-color: #6364FF;
 
-@mixin social-media-icon($color, $transition){
+@mixin social-media-icon($color, $transition) {
     -webkit-transition: $transition;
     -o-transition: $transition;
     -ms-transition: $transition;
     -moz-transition: $transition;
     transition: $transition;
-    &:hover{
+
+    &:hover {
         color: $color;
     }
+}
+
+.fa-linkedin {
+    padding: 5px;
+    @include social-media-icon($linkedin-color, $icon-transition-time);
 }
 
 .fa-twitter {
@@ -25,10 +32,16 @@ $ideas-repec-color: #fc0000;
     @include social-media-icon($twitter-color, $icon-transition-time);
 }
 
+.fa-bluesky {
+    padding: 5px;
+    @include social-media-icon($bluesky-color, $icon-transition-time);
+}
+
 .fa-github {
     padding: 5px;
     @include social-media-icon($github-color, $icon-transition-time);
 }
+
 
 .ai-researchgate {
     padding: 5px;
