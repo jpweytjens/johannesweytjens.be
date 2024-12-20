@@ -5,7 +5,7 @@ description: Publications
 ---
 
 ### Work in progress
-* Myopic Loss Aversion and the Excess Consumption Puzzle<br>
+* Myopic Loss Aversion and the Excess Consumption Puzzle(s)<br>
 (with Milan van den Heuvel and Koen Schoors)
 
 
@@ -18,7 +18,7 @@ _Ghent University Faculty of Economics Working Paper 24/1093_<br>
 Using Bank Transactions</a><br>
 (with Selien De Schryder, Nikolaos Koutounidis and Koen Schoors)<br>
 _Ghent University Faculty of Economics Working Paper 24/1090_<br>
-* <a href="https://www.nbb.be/doc/ts/publications/wp/wp415en.pdf">Taming the Zoo of Consumption Responses to
+* <a href="https://wps-feb.ugent.be/Papers/wp_23_1067.pdf">Taming the Zoo of Consumption Responses to
 Labour Income Changes</a><br>
 (with Kris Boudt, Koen Schoors and Milan van den Heuvel)<br>
 _Ghent University Faculty of Economics Working Paper 23/1067_
