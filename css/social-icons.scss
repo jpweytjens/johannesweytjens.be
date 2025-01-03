@@ -9,6 +9,7 @@ $osf-color: #27b4eb;
 $orcid-color: #a6ce39;
 $ideas-repec-color: #fc0000;
 $bluesky-color: #6364FF;
+$strava-color: #fc4c02;
 
 @mixin social-media-icon($color, $transition) {
     -webkit-transition: $transition;
@@ -40,6 +41,11 @@ $bluesky-color: #6364FF;
 .fa-github {
     padding: 5px;
     @include social-media-icon($github-color, $icon-transition-time);
+}
+
+.fa-strava {
+    padding: 5px;
+    @include social-media-icon($strava-color, $icon-transition-time);
 }
 
 
