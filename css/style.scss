@@ -116,13 +116,18 @@ table {
 }
 
 .inner-container {
-    padding-top: 2rem;
+    padding-top: 1rem;
     width: 60%;
 }
 
 .publication-container {
-    padding-top: 2rem;
+    padding-top: 1rem;
     width: 75%;
+}
+
+.publication-container ul li,
+.publication-container ol li {
+    margin-bottom: 1rem;
 }
 
 .bottom-footer {
