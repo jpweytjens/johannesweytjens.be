@@ -3,6 +3,7 @@ social:
  - {icon: 'bluesky', link: 'https://bsky.app/profile/peregrinus.be'}
  - {icon: 'twitter', link: 'https://twitter.com/jpweytjens'}
  - {icon: 'github', link: 'https://github.com/jpweytjens'}
+ - {icon: 'strava', link: 'https://www.strava.com/athletes/17322406'}
  
 academic:
  - {icon: 'orcid', link: 'https://orcid.org/0000-0002-2748-1524'}
