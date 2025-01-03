@@ -8,7 +8,9 @@ title: Johannes Weytjens CSS - bases on ET Jekyll
 @charset "UTF-8";
 $media-tablet : '(max-width: 850px)';
 @import "social-icons";
-@import "github.css";
+@import "selenized.css";
+@import url("https://cdn.jsdelivr.net/npm/@fontsource/monaspace-neon@5.1.0/400.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,450;1,450&display=swap");
 
 /**************************************
     $DEFAULT ELEMENTS
@@ -40,8 +42,8 @@ table {
 }
 
 /*p*/.sans {
-    font-family: public-sans, Arial, Helvetica, sans-serif;
-    font-weight: bold;
+    font-family: "Mona Sans", Arial, Helvetica, sans-serif;
+    font-weight: 700;
     letter-spacing: .03em;
 }
 
@@ -66,7 +68,6 @@ table {
 /*span*/.sidenote {
     &:before {
         content: counter(sidenote-counter) " ";
-        font-family: public-sans-regular;
         position: relative;
         top: -0.5rem;
         vertical-align: baseline;
@@ -78,7 +79,6 @@ table {
 
     &:after {
         content: counter(sidenote-counter);
-        font-family: public-sans-regular;
         font-size: 80%;
         left: 0.1rem;
         position: relative;
@@ -91,6 +91,7 @@ table {
     display: block;
     font-size: 80%;
     font-style: italic;
+    margin-top: 0.5rem; 
 }
 
 /*div*/.epigraph {
@@ -235,7 +236,7 @@ ul.icons {
 
                 a,a:hover {
                     text-decoration: none;
-                    color: #629cc6;
+                    color: #4477aa;
                 }
 
                 }

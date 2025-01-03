@@ -1,0 +1,69 @@
+.highlight {
+    /* Selenized color palette */
+    --sel-bg-0: #ffffff;
+    --sel-bg-1: #ebebeb;
+    --sel-dim-0: #878787;
+    --sel-fg-0: #474747;
+    --sel-red: #d6000c;
+    --sel-green: #1d9700;
+    --sel-yellow: #c49700;
+    --sel-blue: #0064e4;
+    --sel-magenta: #dd0f9d;
+    --sel-cyan: #00ad9c;
+    --sel-orange: #d04a00;
+    --sel-violet: #7f51d6;
+    --sel-br-red: #bf0000;
+
+    /* background-color: var(--sel-bg-0); */
+    color: var(--sel-fg-0);
+
+    /* Syntax elements */
+    .c, .cm, .cp, .c1, .cs { 
+        color: var(--sel-dim-0); 
+        font-style: italic; 
+    }  /* Comments */
+
+    .k, .kc, .kd, .kn, .kp, .kr, .kt { 
+        color: var(--sel-blue); 
+        font-weight: bold; 
+    }  /* Keywords */
+
+    .s, .sb, .sc, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss { 
+        color: var(--sel-red); 
+    }  /* Strings */
+
+    .m, .mf, .mh, .mi, .mo, .il { 
+        color: var(--sel-cyan); 
+    }  /* Numbers */
+
+    .nf, .fm { 
+        color: var(--sel-green); 
+        font-weight: bold; 
+    }  /* Functions */
+
+    .nb, .bp { 
+        color: var(--sel-violet); 
+    }  /* Built-ins */
+
+    .nv, .vc, .vg, .vi { 
+        color: var(--sel-magenta); 
+    }  /* Variables */
+
+    .nc, .nd { 
+        color: var(--sel-yellow); 
+        font-weight: bold; 
+    }  /* Classes/decorators */
+
+    .o, .ow { 
+        color: var(--sel-orange); 
+    }  /* Operators */
+
+    .err { 
+        color: var(--sel-br-red); 
+        background-color: transparent; 
+    }  /* Errors */
+
+    .hll { 
+        background-color: var(--sel-bg-1); 
+    }  /* Line highlights */
+}
