@@ -1,0 +1,3 @@
+---
+BUNDLE_BUILD__UNF_EXT: "--with-cflags=-Wno-error=implicit-function-declaration"
+BUNDLE_BUILD__SASSC: "--disable-march-tune-native"
