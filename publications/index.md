@@ -12,8 +12,7 @@ description: Publications
 1. <a href ="https://wps-feb.ugent.be/Papers/wp_24_1093.pdf"> Tracking Demographic and Financial Trends in Renewable Energy Cooperative Membership in Belgium using Survey and Bank Transaction Data</a><br>
 (with Melita Van Steenberghe, Aislinn D’hulster, Marten Ovaere and Koen Schoors)<br>
 _Ghent University Faculty of Economics Working Paper 24/1093_<br>
-3. <a href="https://wps-feb.ugent.be/Papers/wp_23_1067.pdf">Taming the Zoo of Consumption Responses to
-Labour Income Changes</a><br>
+3. <a href="https://wps-feb.ugent.be/Papers/wp_23_1067.pdf">Taming the Zoo of Consumption Responses to Labour Income Changes</a><br>
 (with Kris Boudt, Koen Schoors and Milan van den Heuvel)<br>
 _Ghent University Faculty of Economics Working Paper 23/1067_
 
@@ -28,6 +27,9 @@ _Ghent University Faculty of Economics Working Paper 23/1067_
 using bank transactions</a><br>
 (with Selien De Schryder, Nikolaos Koutounidis and Koen Schoors)<br>
 _Journal of Macroeconomics (2025)_<br>
+4. <a href ="https://wps-feb.ugent.be/Papers/wp_24_1093.pdf"> Tracking Demographic and Financial Trends in Renewable Energy Cooperative Membership in Belgium using Survey and Bank Transaction Data</a><br>
+(with Melita Van Steenberghe, Aislinn D'hulster, Marten Ovaere and Koen Schoors)<br>
+_Nature Humanities and Social Sciences Communications (2025)_<br>
 
 ### Book chapters
 1. <a href="https://gompel-svacina.eu/product/artificiele-intelligentie-en-maatschappij/">"AI en de Arbeidsmarkt"</a><br>
