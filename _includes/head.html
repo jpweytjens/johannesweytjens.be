@@ -26,6 +26,14 @@
       />
       <link rel="canonical" href="{{ site.baseurl }}{{ page.url }}" />
       <link rel="manifest" href="{{ site.baseurl }}/manifest.json" />
+      <!-- Font preloading for better performance -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link rel="preconnect" href="https://cdn.jsdelivr.net">
+      <link rel="preload" href="https://fonts.googleapis.com/css2?family=Mona+Sans:wght@450;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mona+Sans:wght@450;700&display=swap"></noscript>
+      <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource/monaspace-neon@5.1.0/400.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/monaspace-neon@5.1.0/400.min.css"></noscript>
       <link rel="stylesheet" href="{{ site.baseurl}}/css/style.css" />
       <link rel="stylesheet" href="{{ site.baseurl}}/css/selenized.css" />
       <link rel="stylesheet" href="{{ site.baseurl}}/css/academicons.css" />
