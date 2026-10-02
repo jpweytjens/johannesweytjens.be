@@ -42,7 +42,7 @@ def read_parquet(
     Parameters
     ----------
     files : list or str
-        String with path or list of strings with paths of the parqiaet file(s) to be read.
+        String with path or list of strings with paths of the parquet file(s) to be read.
     columns : list, default=None
         List of columns to read from the parquet file(s). If None, reads all columns.
     parallel : bool, default=True
@@ -54,7 +54,7 @@ def read_parquet(
     show_progress : bool, default=True
         If True, shows a tqdm progress bar with the number of files that have already been read.
     ignore_index : bool, default=True
-        If True, do not use the index values along the concatenation axis. The resulting axis will be labeled 0, ..., n-1. This is useful if you are concatenating objects where the concatention axis does not have meaningful indexing information.
+        If True, do not use the index values along the concatenation axis. The resulting axis will be labeled 0, ..., n-1. This is useful if you are concatenating objects where the concatenation axis does not have meaningful indexing information.
 
     Returns
     ------
@@ -65,7 +65,7 @@ def read_parquet(
     if isinstance(files, str):
         files = [files]
 
-    # no need for more cpu's then files
+    # no need for more CPUs than files
     if len(files) < n_concurrent_files:
         n_concurrent_files = len(files)
 
@@ -74,7 +74,7 @@ def read_parquet(
         if len(columns) < n_concurrent_columns:
             n_concurrent_columns = len(columns)
 
-    # set number of threads used for reading the columns of each parquet files
+    # set number of threads used for reading the columns of each parquet file
     pa.set_cpu_count(n_concurrent_columns)
 
     # read files

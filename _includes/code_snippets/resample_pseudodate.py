@@ -36,7 +36,7 @@ def _resample_fast(df, pseudodate, group_id):
         for _, row in date_ranges.iterrows()
     ]
 
-    # combine alln products of household and dates in a single list
+    # combine all products of household and dates in a single list
     result = [
         product
         for combination in combinations

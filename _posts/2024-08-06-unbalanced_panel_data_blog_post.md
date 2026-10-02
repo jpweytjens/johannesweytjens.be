@@ -19,7 +19,7 @@ The `add_pseudodate` function adds a pseudodate column to the dataframe, alignin
 
 This function calculates an offset based on the minimum date in your dataset and maps each date to a corresponding pseudodate, starting from a specified `start_pseudodate`. The result is a new column in your dataframe that maintains temporal continuity.
 
-Once the pseudodate is added, we need to fill in the missing dates. The `resample_missing_pseudodates` function offers two methods (`fast` and `slow`) to resample the data. The `slow` method is the straight forward pandas approach. This can be slow for panel datasets with high N (~500'000) and comparatively small T (~100). The `fast` method manually constructs a new `MultiIndex` with all the required observations and is about 4 times faster than the slow method.
+Once the pseudodate is added, we need to fill in the missing dates. The `resample_missing_pseudodates` function offers two methods (`fast` and `slow`) to resample the data. The `slow` method is the straightforward pandas approach. This can be slow for panel datasets with high N (~500'000) and comparatively small T (~100). The `fast` method manually constructs a new `MultiIndex` with all the required observations and is about 4 times faster than the slow method.
 
 {% highlight python %}
 {% include code_snippets/resample_pseudodate.py %}
@@ -38,7 +38,7 @@ This function fills the missing values with a specified `fill_value`, ensuring t
 {% include code_snippets/label_resampled.py %}
 {% endhighlight %}
 
-The `impute_resampled_dates` function adjusts the pseudodates back to actual dates, maintaining the temporal alignment. Currently (pandas v2.2.2) doesn't support vectorized additions of DateOffsets, i.e. adding a column of DateOffsets to a datetime column. Pandas does allow fast addition of a single DateOffset to a datetime column. The function below partially vectorizes the addition by looping over all unique DateOffsets values. If T is small compared to N, this is much faster than other approaches.
+The `impute_resampled_dates` function adjusts the pseudodates back to actual dates, maintaining the temporal alignment. Currently, pandas (v2.2.2) doesn't support vectorized additions of DateOffsets, i.e. adding a column of DateOffsets to a datetime column. Pandas does allow fast addition of a single DateOffset to a datetime column. The function below partially vectorizes the addition by looping over all unique DateOffset values. If T is small compared to N, this is much faster than other approaches.
 
 {% highlight python %}
 {% include code_snippets/impute_resampled.py %}
