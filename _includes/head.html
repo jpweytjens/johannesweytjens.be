@@ -3,14 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% capture description %}{% if page.description %}{{ page.description | markdownify | strip_html | strip }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
     <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
-    <meta
-      name="description"
-      content="{% if page.description %}{{ page.description | markdownify | strip_html | strip }}{% else %}{{ site.description }}{% endif %}"
-    />
+    <meta name="description" content="{{ description }}" />
     <link rel="icon" href="{{ site.baseurl }}/favicon.ico" type="image/x-icon" />
     {% feed_meta %}
     <link rel="canonical" href="{{ page.url | absolute_url }}" />
+    <!-- Link previews: what LinkedIn, Bluesky and Slack show for a shared page -->
+    <meta property="og:title" content="{{ page.title | default: site.title }}" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="og:url" content="{{ page.url | absolute_url }}" />
+    <meta property="og:type" content="{% if page.date %}article{% else %}website{% endif %}" />
+    <meta property="og:site_name" content="{{ site.title }}" />
+    <meta property="og:image" content="{{ '/images/profile.jpg' | absolute_url }}" />
+    <meta name="twitter:card" content="summary" />
+    {% if page.url == "/" %}
+    <!-- Who the site is about, and the profiles that are also him -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": {{ site.author | jsonify }},
+        "url": {{ '/' | absolute_url | jsonify }},
+        "image": {{ '/images/profile.jpg' | absolute_url | jsonify }},
+        "description": {{ site.description | jsonify }},
+        "sameAs": {{ site.data.settings.icons | map: "link" | jsonify }}
+      }
+    </script>
+    {% endif %}
     <link rel="manifest" href="{{ site.baseurl }}/manifest.json" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/work-sans@5.3.0/index.min.css">
