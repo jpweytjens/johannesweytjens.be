@@ -366,25 +366,8 @@ table {
 nav {
     font-size: 0.95rem;
 
-    /* The paragraph only holds the narrow-screen menu toggle. */
-    p {
-        margin: 0;
-    }
-
-    .menu-icon {
-        cursor: pointer;
-        display: none;
-    }
-
-    .menu-btn {
-        display: none;
-    }
-
-    .menu-btn:checked ~ .site-nav {
-
-        display: block;
-    }
-
+    /* Three links fit one line even on a 320px phone, so the menu never
+       collapses behind a toggle. */
     ul.site-nav {
         list-style: none;
         margin: 0;
@@ -485,36 +468,6 @@ ul.icons {
     .publication-container {
         padding-top: 2rem;
         width: 100%;
-    }
-
-    nav {
-
-        .menu-icon {
-            display: inline-block;
-        }
-
-        ul.site-nav {
-            display: none;
-
-            li {
-                display: block;
-                margin: 1rem 0;
-                width: 100%;
-
-                a,a:visited {
-                    display: block;
-                    width: 100%;
-                    text-decoration: none;
-                    color: var(--ink);
-
-                a,a:hover {
-                    text-decoration: none;
-                    color: var(--link-hover);
-                }
-
-                }
-            }
-        }
     }
 }
 
