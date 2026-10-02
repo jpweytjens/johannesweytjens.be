@@ -62,13 +62,23 @@ body {
   margin: 0;
 }
 
+/* The heading scale is vanzelfsprekend's: each rank a size apart, set
+   close, and balanced so a long title breaks into even lines. */
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  text-wrap: balance;
+}
 h1,
 h2 {
-  font-style: italic;
   font-weight: 700;
 }
+h2,
 h3 {
   font-style: italic;
+}
+h3 {
   font-weight: 600;
 }
 h4,
@@ -81,17 +91,16 @@ h6 {
 }
 
 h1 {
-  font-size: 1.85rem;
-  font-style: normal;
-  margin-top: 1.8rem;
+  font-size: 1.6rem;
+  margin: 2.2rem 0 0.3rem;
 }
 h2 {
-  font-size: 1.75rem;
-  margin-top: 3.2rem;
+  font-size: 1.25rem;
+  margin: 2.6rem 0 0.6rem;
 }
 h3 {
-  font-size: 1.25rem;
-  margin-top: 2rem;
+  font-size: 1.0625rem;
+  margin: 1.8rem 0 0.4rem;
 }
 
 p {
@@ -171,8 +180,9 @@ table {
     $DEFAULT CLASSES
 /**************************************/
 /*p*/.subtitle {
-    font-size: 1.0rem;
+    color: var(--ink-soft);
     font-style: italic;
+    margin-bottom: 2rem;
 }
 
 /*p*/.sans {
@@ -272,8 +282,25 @@ table {
 /**************************************
     $NAVIGATION
 /**************************************/
+/* The site, its sections, the page: a size apart at each step, so the
+   masthead names the site without competing with the page's title. */
+.brand,
+.brand:visited {
+    color: var(--ink);
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.8rem;
+}
+
 nav {
-    margin-top: 1rem;
+    font-size: 0.95rem;
+
+    /* The paragraph only holds the narrow-screen menu toggle. */
+    p {
+        margin: 0;
+    }
 
     .menu-icon {
         cursor: pointer;
