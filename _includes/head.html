@@ -9,11 +9,7 @@
       content="{% if page.description %}{{ page.description | markdownify | strip_html | strip }}{% else %}{{ site.description }}{% endif %}"
     />
     <link rel="icon" href="{{ site.baseurl }}/favicon.ico" type="image/x-icon" />
-    <link
-      href="{{ site.baseurl }}/feed.xml"
-      rel="alternate"
-      type="application/atom+xml"
-    />
+    {% feed_meta %}
     <link rel="canonical" href="{{ site.baseurl }}{{ page.url }}" />
     <link rel="manifest" href="{{ site.baseurl }}/manifest.json" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net">

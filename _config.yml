@@ -2,6 +2,7 @@
 
 title: Johannes Weytjens
 description: "Johannes Weytjens: research engineer with a background in physics and economics. Head of Operations at Prometis Lab; builds cycling software in his spare time."
+author: Johannes Weytjens
 url: https://johannesweytjens.be
 repository: jpweytjens/johannesweytjens.be
 
@@ -13,6 +14,7 @@ highlighter: rouge
 
 plugins:
 - jekyll-sitemap
+- jekyll-feed
 
 compress_html:
   clippings: all
