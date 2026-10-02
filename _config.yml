@@ -5,6 +5,9 @@ description: "Johannes Weytjens: research engineer with a background in physics 
 author: Johannes Weytjens
 url: https://johannesweytjens.be
 repository: jpweytjens/johannesweytjens.be
+# GoatCounter site code: visits count at https://<code>.goatcounter.com.
+# Production builds only; left empty, no counter is loaded.
+goatcounter: ""
 
 
 ###########
