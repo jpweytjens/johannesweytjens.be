@@ -35,7 +35,7 @@ def read_parquet(
     n_concurrent_columns=4,
     show_progress=True,
     ignore_index=True,
-    chunksize=None,
+    chunksize=1,
 ):
     """Read a single parquet file or a list of parquet files and return a pandas DataFrame. If `parallel==True`, it's on average 50% faster than `pd.read_parquet(..., engine="fastparquet")`. Limited benchmarks indicate that the default values for `n_concurrent_files` and `n_concurrent_columns` are the fastest combination on a 32 core CPU. `n_concurrent_files` * `n_concurrent_columns` <= the number of available cores.
 
@@ -89,7 +89,7 @@ def read_parquet(
             files,
             max_workers=n_concurrent_files,
             chunksize=chunksize,
-            disabled=not show_progress,
+            disable=not show_progress,
         )
 
         # reduce the list of dataframes to a single dataframe
