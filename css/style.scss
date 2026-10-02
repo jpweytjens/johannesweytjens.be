@@ -7,7 +7,7 @@ title: Johannes Weytjens CSS - bases on ET Jekyll
 /**************************************/
 @charset "UTF-8";
 $media-tablet : '(max-width: 850px)';
-@import "social-icons";
+@use "social-icons";
 @import "selenized.css";
 @import url("https://cdn.jsdelivr.net/npm/@fontsource/monaspace-neon@5.1.0/400.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,450;1,450&display=swap");
