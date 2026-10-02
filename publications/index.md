@@ -11,7 +11,8 @@ description: Publications
 ### Working papers
 1. <a href="https://wps-feb.ugent.be/Papers/wp_23_1067.pdf">Taming the Zoo of Consumption Responses to Labour Income Changes</a><br>
 (with Kris Boudt, Koen Schoors and Milan van den Heuvel)<br>
-_Ghent University Faculty of Economics Working Paper 23/1067 (2023, revised November 2024)_
+_Ghent University Faculty of Economics Working Paper 23/1067 (2023, revised November 2024)_<br>
+Earlier version: <a href="https://www.nbb.be/doc/ts/publications/wp/wp415en.pdf">National Bank of Belgium Working Paper No. 415</a> (2022)
 
 ### Published papers
 1. <a href="https://doi.org/10.1007/s10198-021-01392-z">"The COVID-19 Crisis and Telework: a research survey on experiences, expectations and hopes"</a><br>
