@@ -10,7 +10,8 @@ $media-tablet : '(max-width: 850px)';
 @use "social-icons";
 @import "selenized.css";
 @import url("https://cdn.jsdelivr.net/npm/@fontsource/monaspace-neon@5.1.0/400.min.css");
-@import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,450;1,450&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/@fontsource-variable/work-sans@5.3.0/index.min.css");
+@import url("https://cdn.jsdelivr.net/npm/@fontsource-variable/work-sans@5.3.0/wght-italic.min.css");
 
 /**************************************
     $DEFAULT ELEMENTS
@@ -42,7 +43,7 @@ table {
 }
 
 /*p*/.sans {
-    font-family: "Mona Sans", Arial, Helvetica, sans-serif;
+    font-family: "Work Sans Variable", "Work Sans", Arial, Helvetica, sans-serif;
     font-weight: 700;
     letter-spacing: .03em;
 }
