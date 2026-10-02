@@ -2,7 +2,7 @@
 ---
 {
   "name": {{ site.title | jsonify }},
-  "short_name": "JWeytjens",
+  "short_name": "J. Weytjens",
   "description": {{ site.description | jsonify }},
   "start_url": "/",
   "display": "standalone",
