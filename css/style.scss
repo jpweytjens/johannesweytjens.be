@@ -218,36 +218,42 @@ table {
     font-style: italic;
 }
 
+/* Sidenotes float into the margin beside the measure, as in
+   vanzelfsprekend, so they take no width from the page; on narrow
+   screens they drop into the text below their anchor. */
 /*span*/.marginnote,
 /*span*/.sidenote {
-    font-size: 80%;
-    line-height: 1.3rem;
-    position: absolute;
-    right: -60%;
-    top: 0;
-    width: 50%;
-}
-
-/*span*/.sidenote {
-    &:before {
-        content: counter(sidenote-counter) " ";
-        position: relative;
-        top: -0.5rem;
-        vertical-align: baseline;
-    }
+    clear: right;
+    color: var(--ink-soft);
+    float: right;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    margin-bottom: 0;
+    margin-right: -52%;
+    margin-top: 0.3rem;
+    width: 42%;
 }
 
 /*span*/.sidenote-number {
     counter-increment: sidenote-counter;
+}
 
-    &:after {
-        content: counter(sidenote-counter);
-        font-size: 80%;
-        left: 0.1rem;
-        position: relative;
-        top: -0.5rem;
-        vertical-align: baseline;
-    }
+/*span*/.sidenote-number::after,
+/*span*/.sidenote::before {
+    content: counter(sidenote-counter);
+    font-size: 0.75em;
+    font-variant-numeric: lining-nums;
+    position: relative;
+    top: -0.45em;
+    vertical-align: baseline;
+}
+
+/*span*/.sidenote-number::after {
+    margin-left: 0.1em;
+}
+
+/*span*/.sidenote::before {
+    margin-right: 0.35em;
 }
 
 /*span*/.mini-note {
@@ -392,6 +398,14 @@ ul.icons {
     pre {
         margin-left: 0;
         max-width: 100%;
+        width: auto;
+    }
+
+    .marginnote,
+    .sidenote {
+        display: block;
+        float: none;
+        margin: 0.5rem 0 0.9rem 1.5rem;
         width: auto;
     }
 
