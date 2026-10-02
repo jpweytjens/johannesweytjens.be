@@ -1,8 +1,7 @@
 ---
 layout: blog
 title: Blog
-description: A collection of posts about economics, python and machine learning
+description: Notes on turning messy data into something you can model, mostly in Python
 ---
 
-<p> A collection of posts about economics, python and machine learning.</p>
-<a href="https://johannesweytjens.be/feed.xml">RSS feed</a>
+<p>Notes on turning messy data into something you can model, mostly in Python.<span class="marginnote">Follow along with the <a href="https://johannesweytjens.be/feed.xml">RSS feed</a>.</span></p>
