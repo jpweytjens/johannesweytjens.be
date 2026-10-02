@@ -21,6 +21,6 @@ However, a parallel method for reading multiple files with pandas, regardless of
 
 The only requirements for this function are pandas, tqdm, and a multicore processor. The code utilizes Python's built-in concurrent.futures module, and incorporates an optional tqdm progress bar and minor optimizations inspired by StackOverflow discussions to further improve performance.
 
-{% highlight python %}
-{% include code_snippets/read_parquet_fast.py %}
-{% endhighlight %}
+{% snippet read_parquet.py read_parquet %}
+
+The full script, with a small example that runs it, is [read_parquet.py]({{ site.baseurl }}/snippets/read_parquet.py).
