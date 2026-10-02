@@ -16,24 +16,20 @@ To address this, we can manually specify extra artists using the `bbox_extra_art
 The `_collect_artists` function is designed to collect the relevant artists from a given axis (`ax`). An artist in Matplotlib is a general term for any object that can be drawn on a figure (e.g., lines, text, patches).
 
 
-{% highlight python %}
-{% include code_snippets/_collect_artists.py %}
-{% endhighlight %}
+{% snippet collect_artists.py _collect_artists %}
 
 This function checks the axis (`ax`) for different types of artists such as legends, annotations, and axis titles/labels, and collects them into a list. This list is then returned, making it easy to manage the various elements in your plot.
 
 The `collect_artists` function extends the `_collect_artists` function by applying it to either a whole figure or a single axis. This flexibility allows it to handle both simple and complex figures with multiple subplots.
 
-{% highlight python %}
-{% include code_snippets/collect_artists.py %}
-{% endhighlight %}
+{% snippet collect_artists.py collect_artists %}
 
 This function first checks if the `plot` parameter is a figure or an axis. If it’s a figure, it iterates through all axes in the figure, collecting artists from each one. If it’s a single axis, it directly collects artists from that axis. The result is a list of all relevant artists, ready to be used when saving the figure.
 
 To use these functions, you simply call `collect_artists` when saving your figure:
 
-{% highlight python %}
-{% include code_snippets/save_artists.py %}
-{% endhighlight %}
+{% snippet collect_artists.py save %}
 
 This ensures that all the collected artists are included in the bounding box calculation, resulting in a well-cropped image without cutting off important elements.
+
+The full script, with a small example that runs it, is [collect_artists.py]({{ site.baseurl }}/snippets/collect_artists.py).
