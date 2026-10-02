@@ -36,5 +36,5 @@ future: false
 
 exclude:
 - README.md
-- LICENSE.md
+- LICENSE.txt
 - "**/__pycache__"
