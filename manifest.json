@@ -1,11 +1,13 @@
+---
+---
 {
-  "name": "Johannes Weytjens",
+  "name": {{ site.title | jsonify }},
   "short_name": "JWeytjens",
-  "description": "Johannes Weytjens - personal website",
+  "description": {{ site.description | jsonify }},
   "start_url": "/",
   "display": "standalone",
   "background_color": "#fbfbfb",
-  "theme_color": "#629cc6",
+  "theme_color": "#fbfbfb",
   "icons": [
     {
       "src": "/favicon.ico",
