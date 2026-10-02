@@ -401,13 +401,21 @@ ul.icons {
     margin: 0;
     padding: 0;
 
-    a,a:visited {
-        text-decoration: none;
-        color: var(--ink);
+    li {
+        display: inline-block;
     }
 
-    a,a:hover {
-        text-decoration: none;
+    /* No :visited here: it would outrank the brand colour on hover. */
+    a {
+        color: var(--ink);
+        display: inline-block;
+        padding: 5px;
+    }
+
+    /* Sized as Font Awesome's fa-lg, which the icons replaced. */
+    svg {
+        display: block;
+        height: 1.333em;
     }
 }
 

@@ -1,16 +1,12 @@
 $icon-transition-time: 1.0s;
 $google-scholar-color: #4788ee;
-$github-color: #343434;
+$github-color: light-dark(#343434, #e6e6e6);
 $linkedin-color: #0073a4;
 $orcid-color: #a6ce39;
 $bluesky-color: #6364FF;
 $strava-color: #fc4c02;
 
 @mixin social-media-icon($color, $transition) {
-    -webkit-transition: $transition;
-    -o-transition: $transition;
-    -ms-transition: $transition;
-    -moz-transition: $transition;
     transition: $transition;
 
     &:hover {
@@ -18,33 +14,26 @@ $strava-color: #fc4c02;
     }
 }
 
-.fa-linkedin {
-    padding: 5px;
+.icon-linkedin {
     @include social-media-icon($linkedin-color, $icon-transition-time);
 }
 
-.fa-bluesky {
-    padding: 5px;
+.icon-bluesky {
     @include social-media-icon($bluesky-color, $icon-transition-time);
 }
 
-.fa-github {
-    padding: 5px;
+.icon-github {
     @include social-media-icon($github-color, $icon-transition-time);
 }
 
-.fa-strava {
-    padding: 5px;
+.icon-strava {
     @include social-media-icon($strava-color, $icon-transition-time);
 }
 
-
-.ai-google-scholar {
-    padding: 5px;
+.icon-google-scholar {
     @include social-media-icon($google-scholar-color, $icon-transition-time);
 }
 
-.ai-orcid {
-    padding: 5px;
+.icon-orcid {
     @include social-media-icon($orcid-color, $icon-transition-time);
 }

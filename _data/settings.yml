@@ -1,8 +1,8 @@
-# Icons appear on the home page in this order
+# Icons appear on the home page in this order; each names an SVG in _includes/icons
 icons:
- - {icon: 'linkedin', font: 'font-awesome', link: 'https://www.linkedin.com/in/johannes-weytjens/'}
- - {icon: 'github', font: 'font-awesome', link: 'https://github.com/jpweytjens'}
- - {icon: 'google-scholar', font: 'academicons', link: 'https://scholar.google.com/citations?hl=en&user=R9eBhyoAAAAJ'}
- - {icon: 'orcid', font: 'academicons', link: 'https://orcid.org/0000-0002-2748-1524'}
- - {icon: 'bluesky', font: 'font-awesome', link: 'https://bsky.app/profile/peregrinus.be'}
- - {icon: 'strava', font: 'font-awesome', link: 'https://www.strava.com/athletes/17322406'}
+ - {icon: 'linkedin', name: 'LinkedIn', link: 'https://www.linkedin.com/in/johannes-weytjens/'}
+ - {icon: 'github', name: 'GitHub', link: 'https://github.com/jpweytjens'}
+ - {icon: 'google-scholar', name: 'Google Scholar', link: 'https://scholar.google.com/citations?hl=en&user=R9eBhyoAAAAJ'}
+ - {icon: 'orcid', name: 'ORCID', link: 'https://orcid.org/0000-0002-2748-1524'}
+ - {icon: 'bluesky', name: 'Bluesky', link: 'https://bsky.app/profile/peregrinus.be'}
+ - {icon: 'strava', name: 'Strava', link: 'https://www.strava.com/athletes/17322406'}
