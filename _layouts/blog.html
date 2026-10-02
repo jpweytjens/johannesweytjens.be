@@ -15,8 +15,8 @@ layout: compress
             {{ page.content }}
 
             {% for post in site.posts %}
-                <article>
-                    <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+                <article class="post-entry">
+                    <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
                     <p>
                         {{ post.description | markdownify | remove: "<p>" | remove: "</p>" | strip }}
                         <span class="mini-note">{{ post.date | date: "%b %-d, %Y" }}</span>

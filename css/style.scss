@@ -263,6 +263,39 @@ table {
     margin-top: 0.5rem; 
 }
 
+/* A post on the blog index is a title, what it is about, and when: the
+   title in ink at the text's size, so the list reads as a list rather
+   than a stack of headings, and the date in the quieter ink. */
+/*article*/.post-entry {
+    margin: 2.2rem 0;
+
+    h2 {
+        font-size: 1.0625rem;
+        font-style: normal;
+        font-weight: 600;
+        margin: 0 0 0.25rem;
+    }
+
+    h2 a,
+    h2 a:visited {
+        color: var(--ink);
+    }
+
+    h2 a:hover {
+        color: var(--link-hover);
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .mini-note {
+        color: var(--ink-soft);
+        font-size: 0.85rem;
+        margin-top: 0.3rem;
+    }
+}
+
 /*div*/.epigraph {
     margin: 4rem 0;
 
