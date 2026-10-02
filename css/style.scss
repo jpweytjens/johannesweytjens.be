@@ -259,15 +259,18 @@ table {
 
 /* A post on the blog index is a title, what it is about, and when: the
    title in ink at the text's size, so the list reads as a list rather
-   than a stack of headings, and the date in the quieter ink. */
+   than a stack of headings, and the date in the quieter ink. The title
+   fills its lines like the description under it; balanced lines would
+   stop short of the paragraph's edge and read as a mistake. */
 /*article*/.post-entry {
     margin: 2.2rem 0;
 
     h2 {
         font-size: 1.0625rem;
         font-style: normal;
-        font-weight: 600;
-        margin: 0 0 0.25rem;
+        font-weight: 650;
+        margin: 0 0 0.45rem;
+        text-wrap: pretty;
     }
 
     h2 a,
