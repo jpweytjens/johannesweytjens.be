@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Automatically include additional artists when using bbox_inches="tight"
+title: Keep legends and annotations when cropping a saved figure
 description: Two functions that automatically take into account legends, labels and annotations when using bbox_inches="tight" whilst saving a matplotlib figure.
 permalink: optimized-matplotlib-bbox-inches-tight/
 date: 2024-08-06

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Resample unbalanced (panel) datasets in Pandas fast
+title: Fill gaps in an unbalanced panel before taking diffs or lags
 description: Pandas by default assumes that consecutive observations in a panel dataset are consecutive dates. This is not the case for unbalanced panel datasets, where units don't need to appear for in every period. This creates problems when calculating a ``.diff()`` or ``.shift()``. One solution is to resample the missing observations. This post provides a fast resampling method that supports periods that aren't a fixed unit of time such as months.
 permalink: resample-unbalanced-dataset-in-pandas-fast/
 date: 2024-08-06
