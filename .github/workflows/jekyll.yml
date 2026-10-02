@@ -34,7 +34,7 @@ jobs:
         env:
           JEKYLL_ENV: production
       - name: Check links and images
-        run: bundle exec htmlproofer ./_site --disable-external
+        run: bundle exec htmlproofer ./_site --disable-external --checks Links,Images,Scripts,Favicon
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
 

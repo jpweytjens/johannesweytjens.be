@@ -6,7 +6,9 @@
     {% capture description %}{% if page.description %}{{ page.description | markdownify | strip_html | strip }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
     <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ description }}" />
-    <link rel="icon" href="{{ site.baseurl }}/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="{{ site.baseurl }}/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="{{ site.baseurl }}/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="{{ site.baseurl }}/apple-touch-icon.png" />
     {% feed_meta %}
     <link rel="canonical" href="{{ page.url | absolute_url }}" />
     <!-- Link previews: what LinkedIn, Bluesky and Slack show for a shared page -->
