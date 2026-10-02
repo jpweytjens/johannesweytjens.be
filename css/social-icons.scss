@@ -1,13 +1,8 @@
 $icon-transition-time: 1.0s;
-$researchgate-color: #00d09d;
 $google-scholar-color: #4788ee;
-$twitter-color: #00aced;
 $github-color: #343434;
 $linkedin-color: #0073a4;
-$facebook-color: #3d5b99;
-$osf-color: #27b4eb;
 $orcid-color: #a6ce39;
-$ideas-repec-color: #fc0000;
 $bluesky-color: #6364FF;
 $strava-color: #fc4c02;
 
@@ -28,11 +23,6 @@ $strava-color: #fc4c02;
     @include social-media-icon($linkedin-color, $icon-transition-time);
 }
 
-.fa-twitter {
-    padding: 5px;
-    @include social-media-icon($twitter-color, $icon-transition-time);
-}
-
 .fa-bluesky {
     padding: 5px;
     @include social-media-icon($bluesky-color, $icon-transition-time);
@@ -49,27 +39,12 @@ $strava-color: #fc4c02;
 }
 
 
-.ai-researchgate {
-    padding: 5px;
-    @include social-media-icon($researchgate-color, $icon-transition-time);
-}
-
 .ai-google-scholar {
     padding: 5px;
     @include social-media-icon($google-scholar-color, $icon-transition-time);
 }
 
-.ai-osf {
-    padding: 5px;
-    @include social-media-icon($osf-color, $icon-transition-time);
-}
-
 .ai-orcid {
     padding: 5px;
     @include social-media-icon($orcid-color, $icon-transition-time);
-}
-
-.ai-ideas-repec {
-    padding: 5px;
-    @include social-media-icon($ideas-repec-color, $icon-transition-time);
 }
