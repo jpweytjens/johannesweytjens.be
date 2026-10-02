@@ -31,6 +31,26 @@
       }
     </script>
     {% endif %}
+    {% if page.layout == "post" %}
+    <!-- What a post is, who wrote it and when, for search results -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": {{ page.title | jsonify }},
+        "description": {{ description | jsonify }},
+        "url": {{ page.url | absolute_url | jsonify }},
+        "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+        "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+        "image": {{ '/images/profile.jpg' | absolute_url | jsonify }},
+        "author": {
+          "@type": "Person",
+          "name": {{ site.author | jsonify }},
+          "url": {{ '/' | absolute_url | jsonify }}
+        }
+      }
+    </script>
+    {% endif %}
     <link rel="manifest" href="{{ site.baseurl }}/manifest.json" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/work-sans@5.3.0/index.min.css">
