@@ -1,0 +1,6 @@
+{
+    // Formatting collapses the front matter Jekyll needs to compile style.scss
+    "[scss]": {
+        "editor.formatOnSave": false
+    }
+}
