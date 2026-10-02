@@ -10,6 +10,30 @@ $media-tablet : '(max-width: 850px)';
 @use "social-icons";
 @use "selenized";
 
+/* Colours follow vanzelfsprekend: a near-white ground and near-black ink,
+   with links in Paul Tol's muted indigo and hover in his rose. Dark mode
+   takes the light scheme's blue and orange, as vanzelfsprekend does. */
+:root {
+  --ground: #fbfbfb;
+  --ink: #1a1a1a;
+  --ink-soft: #555555;
+  --rule: #1a1a1a;
+  --link: #332288;
+  --link-hover: #CC6677;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #151515;
+    --ink: #dcdcdc;
+    --ink-soft: #9a9a9a;
+    --rule: #dcdcdc;
+    --link: #77AADD;
+    --link-hover: #EE8866;
+    color-scheme: dark;
+  }
+}
+
 /**************************************
     $DEFAULT ELEMENTS
 /**************************************/
@@ -29,8 +53,8 @@ html {
 
 body {
   -webkit-font-smoothing: antialiased;
-  background: #fbfbfb;
-  color: #111;
+  background: var(--ground);
+  color: var(--ink);
   counter-reset: sidenote-counter;
   font: 1.0625rem/1.55 "Work Sans Variable", "Work Sans", Arial, Helvetica, sans-serif;
   font-weight: 450;
@@ -75,10 +99,12 @@ p {
 }
 
 a,
-a:visited,
-a:hover {
+a:visited {
   text-decoration: none;
-  color: #629cc6;
+  color: var(--link);
+}
+a:hover {
+  color: var(--link-hover);
 }
 
 blockquote {
@@ -106,7 +132,7 @@ figure {
 }
 
 hr {
-  background: #111;
+  background: var(--rule);
   border: 0;
   height: 1px;
   margin: 4rem 0;
@@ -137,7 +163,7 @@ table {
     }
 
     thead th {
-        border-bottom: 1px solid #111;
+        border-bottom: 1px solid var(--rule);
     }
 }
 
@@ -275,10 +301,10 @@ nav {
 
         a,a:visited {
             text-decoration: none;
-            color: #222;
+            color: var(--ink);
 
             &:hover {
-                color: #47a0e1;
+                color: var(--link-hover);
             }
         }
     }
@@ -295,7 +321,7 @@ ul.icons {
 
     a,a:visited {
         text-decoration: none;
-        color: #222;
+        color: var(--ink);
     }
 
     a,a:hover {
@@ -340,11 +366,11 @@ ul.icons {
                     display: block;
                     width: 100%;
                     text-decoration: none;
-                    color: #222;
+                    color: var(--ink);
 
                 a,a:hover {
                     text-decoration: none;
-                    color: #4477aa;
+                    color: var(--link-hover);
                 }
 
                 }
