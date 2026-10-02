@@ -229,6 +229,13 @@ table {
     width: 42%;
 }
 
+/* Extra air after a block that closes a thought, as between the home
+   page's paragraphs; a lead-in such as "Some things I've started:" goes
+   without, so it stays with its list. */
+.gap-after {
+    padding-bottom: 0.5cm;
+}
+
 /* The home page's portrait is a margin note beside the introduction. */
 /*span*/.profile img {
     height: auto;
