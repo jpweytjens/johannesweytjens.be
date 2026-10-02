@@ -18,7 +18,7 @@ layout: compress
                 <article>
                     <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
                     <p>
-                        {{ post.description }}
+                        {{ post.description | markdownify | remove: "<p>" | remove: "</p>" | strip }}
                         <span class="mini-note">{{ post.date | date: "%b %-d, %Y" }}</span>
                     </p>
                 </article>
