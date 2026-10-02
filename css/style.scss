@@ -8,7 +8,7 @@ title: Johannes Weytjens CSS - bases on ET Jekyll
 @charset "UTF-8";
 $media-tablet : '(max-width: 850px)';
 @use "social-icons";
-@use "selenized";
+@use "syntax";
 
 /* Colours follow vanzelfsprekend: a near-white ground and near-black ink,
    with links in Paul Tol's muted indigo and hover in his rose. Dark mode
@@ -125,12 +125,28 @@ blockquote footer {
   text-align: right;
 }
 
-code {
-  font-size: 0.95rem;
+/* Code: blocks on the page ground, no box, and they may run into the
+   margin; an indent, air and syntax colour already set them apart. A name
+   in a sentence gets a tint of the ink into the ground, since the face
+   alone does not mark it. Measured in headless Chrome 2026-10-02 at 17px:
+   x-heights 8.50 (Work Sans 450) and 8.73 (Monaspace Neon), cap heights
+   11.22 and 12.41. Matching x-heights asks 0.974em, matching caps 0.904em;
+   0.94em sits between, a hair small in lowercase and a hair tall in caps. */
+code,
+pre {
+  font-family: "Monaspace Neon", ui-monospace, Menlo, monospace;
+  font-feature-settings: "calt", "liga";
+  font-size: 0.94em;
   font-style: normal;
   font-weight: normal;
-  font-family: "Monaspace Neon", "Lucida Console", Monaco, monospace;
-  white-space: pre-wrap;
+}
+pre code {
+  font-size: 1em;
+}
+:not(pre) > code {
+  background: color-mix(in srgb, var(--ink) 6%, var(--ground));
+  border-radius: 3px;
+  padding: 0.05em 0.3em;
 }
 
 figure {
@@ -149,9 +165,12 @@ hr {
 }
 
 pre {
-  font-size: 90%;
-  margin-left: 2.5%;
+  color: var(--ink);
+  line-height: 1.5;
+  margin: 1.4rem 0 1.6rem 1.5rem;
+  max-width: calc(100% + 45%); /* the measure plus the margin beside it */
   overflow-x: auto;
+  width: max-content;
 }
 
 img {
@@ -368,6 +387,12 @@ ul.icons {
     .inner-container {
         padding-top: 2rem;
         width: 100%;
+    }
+
+    pre {
+        margin-left: 0;
+        max-width: 100%;
+        width: auto;
     }
 
     .publication-container {
