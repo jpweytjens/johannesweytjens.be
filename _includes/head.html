@@ -55,6 +55,9 @@
     {% endif %}
     <link rel="manifest" href="{{ site.baseurl }}/manifest.json" />
     <link rel="stylesheet" href="{{ site.baseurl }}/css/style.css" />
+    {% if page.layout == "post" %}
+    <script defer src="{{ site.baseurl }}/js/copy-code.js"></script>
+    {% endif %}
     {% if page.math %}
     <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js"></script>
     {% endif %}
