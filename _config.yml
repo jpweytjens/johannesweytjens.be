@@ -11,6 +11,9 @@ repository: jpweytjens/johannesweytjens.be
 markdown: kramdown
 highlighter: rouge
 
+plugins:
+- jekyll-sitemap
+
 compress_html:
   clippings: all
   comments: [""]
