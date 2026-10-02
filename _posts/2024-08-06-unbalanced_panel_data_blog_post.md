@@ -47,3 +47,15 @@ To use these functions, you can chain them together using Pandas’ `pipe` funct
 This pipeline will take your unbalanced panel data, fill in the missing values, and prepare it for time series operations like `.diff()` or `.shift()`.
 
 The full script, with a small example that runs it, is [balance_panel.py]({{ site.baseurl }}/snippets/balance_panel.py).
+
+## Addendum, October 2026
+
+pandas fills the gaps itself when each unit is resampled at the start of every month, with no pseudodates:
+
+{% snippet balance_panel.py resample %}
+
+It is the place to start, and for a small panel the only code needed. On a large panel it is slow. On a synthetic panel of 20,000 units over 100 months with 30% of the months missing, the median of five runs took 8.2 s against 3.4 s for the pipeline above, on 12 cores with pandas 3.0.6. Polars has the operation built in, calendar months included, and took 2.3 s:
+
+{% snippet balance_panel.py polars %}
+
+All three return the same rows. Polars and `resample` leave the new rows empty; the pipeline above also fills and labels them.

@@ -136,6 +136,27 @@ if __name__ == "__main__":
         }
     )
 
+    # --8<-- [start:resample]
+    balanced = (
+        df.set_index("date")
+        .groupby("group")
+        .resample("MS")
+        .asfreq()
+        .reset_index()
+    )
+    # --8<-- [end:resample]
+
+    import polars as pl
+
+    # --8<-- [start:polars]
+    upsampled = (
+        pl.from_pandas(df)
+        .sort("group", "date")
+        .upsample("date", every="1mo", group_by="group")
+        .to_pandas()
+    )
+    # --8<-- [end:polars]
+
     # --8<-- [start:pipeline]
     df = (
         df.pipe(add_pseudodate)
@@ -149,3 +170,6 @@ if __name__ == "__main__":
     # --8<-- [end:pipeline]
 
     assert len(df) == 7 and df["resampled"].sum() == 3
+    grid = df[["group", "date"]].reset_index(drop=True)
+    assert balanced[["group", "date"]].equals(grid)
+    assert upsampled[["group", "date"]].astype(grid.dtypes).equals(grid)
