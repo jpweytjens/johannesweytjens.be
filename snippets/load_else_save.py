@@ -1,3 +1,4 @@
+# --8<-- [start:load_else_save]
 import functools
 import hashlib
 import inspect
@@ -134,3 +135,21 @@ def load_else_save(filename):
         return wrapper
 
     return decorator
+# --8<-- [end:load_else_save]
+
+
+if __name__ == "__main__":
+    import os
+    import tempfile
+
+    os.chdir(tempfile.mkdtemp())
+    calls = []
+
+    @load_else_save("data.parquet")
+    def slow_computation():
+        calls.append(1)
+        return pd.DataFrame({"value": [1, 2]})
+
+    first = slow_computation()
+    second = slow_computation()
+    assert len(calls) == 1 and first.equals(second)

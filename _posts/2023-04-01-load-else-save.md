@@ -20,6 +20,6 @@ By using a caching decorator, you can optimize the handling of large datasets an
 
 Here's an example of a caching decorator that saves the output as parquet files.
 
-{% highlight python %}
-{% include code_snippets/load_else_save.py %}
-{% endhighlight %}
+{% snippet load_else_save.py load_else_save %}
+
+The full script, with a small example that runs it, is [load_else_save.py]({{ site.baseurl }}/snippets/load_else_save.py).
