@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Keep legends and annotations when cropping a saved figure
-description: Two functions that automatically take into account legends, labels and annotations when using bbox_inches="tight" whilst saving a matplotlib figure.
+description: 'Cropping a saved figure to its contents can cut off legends and annotations placed outside the axes. Two functions collect them so Matplotlib keeps them in the frame.'
 permalink: optimized-matplotlib-bbox-inches-tight/
 date: 2024-08-06
 ---

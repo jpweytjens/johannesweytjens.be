@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Cache slow computations until their code changes
-description: A decorator to automatically save and load output from slow functions that return DataFrames.
+description: 'A decorator that saves a slow function''s DataFrame to disk and loads it on the next call. It recomputes only when the function''s code changes, ignoring comments and formatting.'
 permalink: load-else-save/
 date: 2023-04-01
 ---

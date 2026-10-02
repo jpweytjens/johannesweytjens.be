@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Read many Parquet files into pandas in parallel
-description: A function which uses python's built-in concurrent.futures package to read multiple (parquet) files with pandas in parallel.
+description: 'A dataset split over many files loads one file at a time. A short function reads them in parallel with Python''s standard library, for any format pandas reads.'
 permalink: read-multiple-files-with-pandas-fast/
 date: 2021-08-04
 ---
