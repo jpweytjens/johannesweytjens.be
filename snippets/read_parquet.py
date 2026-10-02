@@ -112,3 +112,8 @@ if __name__ == "__main__":
 
         df = read_parquet(files, show_progress=False)
         assert df.equals(pd.concat(parts, ignore_index=True))
+
+        # --8<-- [start:native]
+        df = pd.read_parquet(directory)
+        # --8<-- [end:native]
+        assert df.equals(pd.concat(parts, ignore_index=True))

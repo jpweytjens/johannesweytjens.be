@@ -24,3 +24,11 @@ The only requirements for this function are pandas, tqdm, and a multicore proces
 {% snippet read_parquet.py read_parquet %}
 
 The full script, with a small example that runs it, is [read_parquet.py]({{ site.baseurl }}/snippets/read_parquet.py).
+
+## Addendum, October 2026
+
+Given a directory, pandas reads every Parquet file in it and concatenates them in one call, at nearly the speed of the function above:
+
+{% snippet read_parquet.py native %}
+
+On a synthetic dataset of 64 gzip-compressed files, each 250,000 rows by 20 columns, the median of five reads took 2.69 s with `pd.read_parquet` and 2.54 s with `read_parquet`, on 12 cores with pandas 3.0.6 and pyarrow 25.0.1. Six percent rarely pays for a function to maintain, so the one-liner is the place to start. The function above still earns its keep when the files do not share a directory, or when a slow read needs a progress bar.
