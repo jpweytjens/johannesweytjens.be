@@ -25,12 +25,13 @@ title:
 </ul>
 
 <ul class="icons">
-    {% for item in site.data.settings.social %}
-    <a href="{{ item.link }}" class="menu-link" target="_blank"><i class="fab fa-{{ item.icon }} fa-lg"
-            aria-hidden="true"></i></a>
-    {% endfor %}
-    {% for item in site.data.settings.academic %}
+    {% for item in site.data.settings.icons %}
+    {% if item.font == 'academicons' %}
     <a href="{{ item.link }}" class="menu-link" target="_blank"><i class="ai ai-{{ item.icon }} ai-lg"
             aria-hidden="true"></i></a>
+    {% else %}
+    <a href="{{ item.link }}" class="menu-link" target="_blank"><i class="fab fa-{{ item.icon }} fa-lg"
+            aria-hidden="true"></i></a>
+    {% endif %}
     {% endfor %}
 </ul>

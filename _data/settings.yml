@@ -1,11 +1,8 @@
-social:
- - {icon: 'linkedin', link: 'https://www.linkedin.com/in/johannes-weytjens/'}
- - {icon: 'bluesky', link: 'https://bsky.app/profile/peregrinus.be'}
- - {icon: 'github', link: 'https://github.com/jpweytjens'}
- - {icon: 'strava', link: 'https://www.strava.com/athletes/17322406'}
- 
-academic:
- - {icon: 'orcid', link: 'https://orcid.org/0000-0002-2748-1524'}
- - {icon: 'osf', link: 'https://osf.io/v6wks/'}
- - {icon: 'ideas-repec', link: 'https://authors.repec.org/pro/pwe473/'}
- - {icon: 'google-scholar', link: 'https://scholar.google.com/citations?hl=en&user=R9eBhyoAAAAJ'}
+# Icons appear on the home page in this order
+icons:
+ - {icon: 'linkedin', font: 'font-awesome', link: 'https://www.linkedin.com/in/johannes-weytjens/'}
+ - {icon: 'github', font: 'font-awesome', link: 'https://github.com/jpweytjens'}
+ - {icon: 'google-scholar', font: 'academicons', link: 'https://scholar.google.com/citations?hl=en&user=R9eBhyoAAAAJ'}
+ - {icon: 'orcid', font: 'academicons', link: 'https://orcid.org/0000-0002-2748-1524'}
+ - {icon: 'bluesky', font: 'font-awesome', link: 'https://bsky.app/profile/peregrinus.be'}
+ - {icon: 'strava', font: 'font-awesome', link: 'https://www.strava.com/athletes/17322406'}
