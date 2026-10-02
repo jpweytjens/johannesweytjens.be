@@ -7,14 +7,220 @@ title: Johannes Weytjens CSS - bases on ET Jekyll
 /**************************************/
 @charset "UTF-8";
 $media-tablet : '(max-width: 850px)';
+$media-phone : '(max-width: 360px)';
+@use "fonts";
 @use "social-icons";
-@import "selenized.css";
-@import url("https://cdn.jsdelivr.net/npm/@fontsource/monaspace-neon@5.1.0/400.min.css");
-@import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,450;1,450&display=swap");
+@use "syntax";
+
+/* Colours follow vanzelfsprekend: a near-white ground and near-black ink,
+   with links in Paul Tol's muted indigo and hover in his rose. Dark mode
+   takes the light scheme's blue and orange, as vanzelfsprekend does. */
+:root {
+  --ground: #fbfbfb;
+  --ink: #1a1a1a;
+  --ink-soft: #555555;
+  --rule: #1a1a1a;
+  --link: #332288;
+  --link-hover: #CC6677;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #151515;
+    --ink: #dcdcdc;
+    --ink-soft: #9a9a9a;
+    --rule: #dcdcdc;
+    --link: #77AADD;
+    --link-hover: #EE8866;
+    color-scheme: dark;
+  }
+}
 
 /**************************************
     $DEFAULT ELEMENTS
 /**************************************/
+* {
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-kerning: auto;
+}
+
+html {
+  font-family: "Work Sans Variable", "Work Sans", sans-serif;
+  font-weight: 450;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  background: var(--ground);
+  color: var(--ink);
+  counter-reset: sidenote-counter;
+  font: 1.0625rem/1.55 "Work Sans Variable", "Work Sans", Arial, Helvetica, sans-serif;
+  font-weight: 450;
+  height: 100%;
+  margin: 0;
+}
+
+/* The heading scale is vanzelfsprekend's: each rank a size apart, set
+   close, and balanced so a long title breaks into even lines. */
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  text-wrap: balance;
+}
+h1,
+h2 {
+  font-weight: 700;
+}
+h2,
+h3 {
+  font-style: italic;
+}
+h3 {
+  font-weight: 600;
+}
+h4,
+h5,
+h6 {
+  font-style: italic;
+  font-weight: normal;
+  line-height: 1;
+  margin: 0;
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin: 2.2rem 0 0.3rem;
+}
+h2 {
+  font-size: 1.25rem;
+  margin: 2.6rem 0 0.6rem;
+}
+h3 {
+  font-size: 1.0625rem;
+  margin: 1.8rem 0 0.4rem;
+}
+
+p {
+  position: relative;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: var(--link);
+}
+a:hover {
+  color: var(--link-hover);
+}
+
+blockquote {
+  margin: 2rem 0 2rem 4rem;
+}
+
+blockquote footer {
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+/* Code: blocks on the page ground, no box, and they may run into the
+   margin; an indent, air and syntax colour already set them apart. A name
+   in a sentence gets a tint of the ink into the ground, since the face
+   alone does not mark it. Measured in headless Chrome 2026-10-02 at 17px:
+   x-heights 8.50 (Work Sans 450) and 8.73 (Monaspace Neon), cap heights
+   11.22 and 12.41. Matching x-heights asks 0.974em, matching caps 0.904em;
+   0.94em sits between, a hair small in lowercase and a hair tall in caps. */
+code,
+pre {
+  font-family: "Monaspace Neon", ui-monospace, Menlo, monospace;
+  font-feature-settings: "calt", "liga";
+  font-size: 0.94em;
+  font-style: normal;
+  font-weight: normal;
+}
+pre code {
+  font-size: 1em;
+}
+:not(pre) > code {
+  background: color-mix(in srgb, var(--ink) 6%, var(--ground));
+  border-radius: 3px;
+  padding: 0.05em 0.3em;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+hr {
+  background: var(--rule);
+  border: 0;
+  height: 1px;
+  margin: 4rem 0;
+  width: 100%;
+}
+
+pre {
+  color: var(--ink);
+  line-height: 1.5;
+  margin: 1.4rem 0 1.6rem 1.5rem;
+  max-width: calc(100% + 45%); /* the measure plus the margin beside it */
+  overflow-x: auto;
+  width: max-content;
+}
+
+/* The copy button sits in the block's top-right corner, in padding kept
+   free for it, so it never covers the first line. It shows on hover or
+   keyboard focus, and always on screens that cannot hover. */
+pre:has(> .copy) {
+  padding-right: 2.6rem;
+  position: relative;
+}
+pre > .copy {
+  align-items: center;
+  background: color-mix(in srgb, var(--ink) 6%, var(--ground));
+  border: 0;
+  border-radius: 4px;
+  color: var(--ink-soft);
+  cursor: pointer;
+  display: flex;
+  height: 1.6rem;
+  justify-content: center;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: opacity 0.15s;
+  width: 1.6rem;
+}
+pre:hover > .copy,
+pre > .copy:focus-visible,
+pre > .copy.copied {
+  opacity: 1;
+}
+pre > .copy:hover {
+  color: var(--link-hover);
+}
+pre > .copy.copied {
+  color: var(--link);
+}
+@media (hover: none) {
+  pre > .copy {
+    opacity: 1;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
 table {
     border-collapse: separate;
     border-spacing: 1.5rem .5rem;
@@ -29,7 +235,7 @@ table {
     }
 
     thead th {
-        border-bottom: 1px solid #111;
+        border-bottom: 1px solid var(--rule);
     }
 }
 
@@ -37,14 +243,9 @@ table {
     $DEFAULT CLASSES
 /**************************************/
 /*p*/.subtitle {
-    font-size: 1.0rem;
+    color: var(--ink-soft);
     font-style: italic;
-}
-
-/*p*/.sans {
-    font-family: "Mona Sans", Arial, Helvetica, sans-serif;
-    font-weight: 700;
-    letter-spacing: .03em;
+    margin-bottom: 2rem;
 }
 
 /*span*/.caps {
@@ -55,36 +256,55 @@ table {
     font-style: italic;
 }
 
+/* Sidenotes float into the margin beside the measure, as in
+   vanzelfsprekend, so they take no width from the page; on narrow
+   screens they drop into the text below their anchor. */
 /*span*/.marginnote,
 /*span*/.sidenote {
-    font-size: 80%;
-    line-height: 1.3rem;
-    position: absolute;
-    right: -60%;
-    top: 0;
-    width: 50%;
+    clear: right;
+    color: var(--ink-soft);
+    float: right;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    margin-bottom: 0;
+    margin-right: -52%;
+    margin-top: 0.3rem;
+    width: 42%;
 }
 
-/*span*/.sidenote {
-    &:before {
-        content: counter(sidenote-counter) " ";
-        position: relative;
-        top: -0.5rem;
-        vertical-align: baseline;
-    }
+/* Extra air after a block that closes a thought, as between the home
+   page's paragraphs; a lead-in such as "Some things I've started:" goes
+   without, so it stays with its list. */
+.gap-after {
+    padding-bottom: 0.5cm;
+}
+
+/* The home page's portrait is a margin note beside the introduction. */
+/*span*/.profile img {
+    height: auto;
+    width: 250px;
 }
 
 /*span*/.sidenote-number {
     counter-increment: sidenote-counter;
+}
 
-    &:after {
-        content: counter(sidenote-counter);
-        font-size: 80%;
-        left: 0.1rem;
-        position: relative;
-        top: -0.5rem;
-        vertical-align: baseline;
-    }
+/*span*/.sidenote-number::after,
+/*span*/.sidenote::before {
+    content: counter(sidenote-counter);
+    font-size: 0.75em;
+    font-variant-numeric: lining-nums;
+    position: relative;
+    top: -0.45em;
+    vertical-align: baseline;
+}
+
+/*span*/.sidenote-number::after {
+    margin-left: 0.1em;
+}
+
+/*span*/.sidenote::before {
+    margin-right: 0.35em;
 }
 
 /*span*/.mini-note {
@@ -92,6 +312,42 @@ table {
     font-size: 80%;
     font-style: italic;
     margin-top: 0.5rem; 
+}
+
+/* A post on the blog index is a title, what it is about, and when: the
+   title in ink at the text's size, so the list reads as a list rather
+   than a stack of headings, and the date in the quieter ink. The title
+   fills its lines like the description under it; balanced lines would
+   stop short of the paragraph's edge and read as a mistake. */
+/*article*/.post-entry {
+    margin: 2.2rem 0;
+
+    h2 {
+        font-size: 1.0625rem;
+        font-style: normal;
+        font-weight: 650;
+        margin: 0 0 0.45rem;
+        text-wrap: pretty;
+    }
+
+    h2 a,
+    h2 a:visited {
+        color: var(--ink);
+    }
+
+    h2 a:hover {
+        color: var(--link-hover);
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .mini-note {
+        color: var(--ink-soft);
+        font-size: 0.85rem;
+        margin-top: 0.3rem;
+    }
 }
 
 /*div*/.epigraph {
@@ -138,23 +394,23 @@ table {
 /**************************************
     $NAVIGATION
 /**************************************/
+/* The site, its sections, the page: a size apart at each step, so the
+   masthead names the site without competing with the page's title. */
+.brand,
+.brand:visited {
+    color: var(--ink);
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.8rem;
+}
+
 nav {
-    margin-top: 1rem;
+    font-size: 0.95rem;
 
-    .menu-icon {
-        cursor: pointer;
-        display: none;
-    }
-
-    .menu-btn {
-        display: none;
-    }
-
-    .menu-btn:checked ~ .site-nav {
-
-        display: block;
-    }
-
+    /* Three links fit one line even on a 320px phone, so the menu never
+       collapses behind a toggle. */
     ul.site-nav {
         list-style: none;
         margin: 0;
@@ -167,10 +423,10 @@ nav {
 
         a,a:visited {
             text-decoration: none;
-            color: #222;
+            color: var(--ink);
 
             &:hover {
-                color: #47a0e1;
+                color: var(--link-hover);
             }
         }
     }
@@ -185,13 +441,21 @@ ul.icons {
     margin: 0;
     padding: 0;
 
-    a,a:visited {
-        text-decoration: none;
-        color: #222;
+    li {
+        display: inline-block;
     }
 
-    a,a:hover {
-        text-decoration: none;
+    /* No :visited here: it would outrank the brand colour on hover. */
+    a {
+        color: var(--ink);
+        display: inline-block;
+        padding: 5px;
+    }
+
+    /* Sized as Font Awesome's fa-lg, which the icons replaced. */
+    svg {
+        display: block;
+        height: 1.333em;
     }
 }
 
@@ -209,38 +473,60 @@ ul.icons {
         width: 100%;
     }
 
+    pre {
+        margin-left: 0;
+        max-width: 100%;
+        width: auto;
+    }
+
+    .marginnote,
+    .sidenote {
+        display: block;
+        float: none;
+        margin: 0.5rem 0 0.9rem 1.5rem;
+        width: auto;
+    }
+
+    /* The portrait keeps to the right, where the margin was, hanging
+       from the first line as a margin note does. The introduction keeps
+       its own column beside it rather than running under it, and is at
+       least as tall as the portrait so the two never overlap. */
+    .marginnote.profile {
+        margin: 0.3rem 0 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100px;
+    }
+
+    .profile img {
+        width: 100px;
+    }
+
+    p:has(> .profile) {
+        min-height: calc(100px + 0.3rem);
+        padding-right: calc(100px + 1.2rem);
+    }
+
     .publication-container {
         padding-top: 2rem;
         width: 100%;
     }
+}
 
-    nav {
+/**************************************
+    $MEDIA QUERIES - PHONE
+/**************************************/
+/* On the narrowest phones a column beside the portrait would hold only a
+   few words a line, so the portrait goes and the text takes the width. */
+@media #{$media-phone} {
 
-        .menu-icon {
-            display: inline-block;
-        }
+    .marginnote.profile {
+        display: none;
+    }
 
-        ul.site-nav {
-            display: none;
-
-            li {
-                display: block;
-                margin: 1rem 0;
-                width: 100%;
-
-                a,a:visited {
-                    display: block;
-                    width: 100%;
-                    text-decoration: none;
-                    color: #222;
-
-                a,a:hover {
-                    text-decoration: none;
-                    color: #4477aa;
-                }
-
-                }
-            }
-        }
+    p:has(> .profile) {
+        min-height: 0;
+        padding-right: 0;
     }
 }

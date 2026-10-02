@@ -1,2 +1,3 @@
-# Website
-The repository for the Jekyll based website <a href="https://www.johannesweytjens.be/">johannesweytjens.be</a>.
+# johannesweytjens.be
+
+The source of [johannesweytjens.be](https://johannesweytjens.be), a Jekyll site forked from Bradley Taunt's [ET-Jekyll theme](https://btxx.org/posts/et-jekyll-theme/), itself built on [Tufte CSS](https://edwardtufte.github.io/tufte-css/).

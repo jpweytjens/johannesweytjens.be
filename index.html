@@ -4,34 +4,25 @@ title:
 ---
 
 
-<p style="padding-top: 0em">
-    <span class="marginnote"><img src="images/profile.webp" alt="Johannes Weytjens" style="width: 250px; height: auto; max-width: 100%;"  loading="lazy"/></span>
-</p>
-
-<p style="padding-bottom: 0.5cm">
+<p class="gap-after">
+    <span class="marginnote profile"><img src="images/profile.webp" alt="Johannes Weytjens" width="396" height="396" /></span>
     Hi, I'm Johannes. I'm Head of Operations at <a href="https://www.prometislab.org/">Prometis Lab</a>, where I lead software development. In my own time I write cycling software that combines noisy sensor data and physics into live numbers to help you read the road ahead.
 </p>
 
-<p style="padding-bottom: 0.5cm">
+<p class="gap-after">
     I studied physics, then did a PhD in economics at <a href="https://www.ugent.be/en">Ghent University</a> on how households react to income changes. Most of that PhD went into the pipeline that turns raw pseudonymised bank transactions into a research-ready dataset. That pipeline now runs at Prometis Lab every day. It's the kind of work I like most: a messy source of data, a model of what it measures, and software that others can build on.
 </p>
 
 <p>Some things I've started:</p>
-<ul style="padding-bottom: 0.5cm">
+<ul class="gap-after">
     <li><a href="https://github.com/jpweytjens/barberfish">Barberfish</a>: native-feeling data field enhancements for the Hammerhead Karoo</li>
-    <li><a href="https://github.com/jpweytjens/godot">Godot</a>: a gradient-aware cycling ETA estimator</li>
+    <li>Godot: a gradient-aware cycling ETA estimator</li>
     <li><a href="https://vanzelfsprekend.johannesweytjens.be">vanzelfsprekend</a>: Matplotlib plots that speak for themselves, inspired by Tufte and Doumont</li>
-    <li><a href="https://ghentfestive500.be">Ghent Festive 500</a>: free social rides with Ghent's cycling clubs between Christmas and New Year; I founded it and organised the first four editions</li>
+    <li><a href="https://ghentfestive500.be">Ghent Festive 500</a>: free social rides with Ghent's cycling clubs between Christmas and New Year</li>
 </ul>
 
 <ul class="icons">
     {% for item in site.data.settings.icons %}
-    {% if item.font == 'academicons' %}
-    <a href="{{ item.link }}" class="menu-link" target="_blank"><i class="ai ai-{{ item.icon }} ai-lg"
-            aria-hidden="true"></i></a>
-    {% else %}
-    <a href="{{ item.link }}" class="menu-link" target="_blank"><i class="fab fa-{{ item.icon }} fa-lg"
-            aria-hidden="true"></i></a>
-    {% endif %}
+    <li><a href="{{ item.link }}" class="icon-{{ item.icon }}" target="_blank" aria-label="{{ item.name }}">{% include icons/{{ item.icon }}.svg %}</a></li>
     {% endfor %}
 </ul>

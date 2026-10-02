@@ -1,16 +1,23 @@
+---
+---
 {
-  "name": "Johannes Weytjens",
-  "short_name": "JWeytjens",
-  "description": "Johannes Weytjens - personal website",
+  "name": {{ site.title | jsonify }},
+  "short_name": "J. Weytjens",
+  "description": {{ site.description | jsonify }},
   "start_url": "/",
   "display": "standalone",
   "background_color": "#fbfbfb",
-  "theme_color": "#629cc6",
+  "theme_color": "#fbfbfb",
   "icons": [
     {
-      "src": "/favicon.ico",
-      "sizes": "any",
-      "type": "image/x-icon"
+      "src": "/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ]
 }

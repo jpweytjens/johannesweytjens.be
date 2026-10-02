@@ -8,17 +8,17 @@ layout: compress
 
         {% include header.html %}
 
-        <div class="inner-container">
+        <main class="inner-container">
 
-            <h2>{{ page.title }}</h2>
+            <h1>{{ page.title }}</h1>
 
             {{ page.content }}
 
             {% for post in site.posts %}
-                <article>
-                    <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+                <article class="post-entry">
+                    <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
                     <p>
-                        {{ post.description }}
+                        {{ post.description | markdownify | remove: "<p>" | remove: "</p>" | strip }}
                         <span class="mini-note">{{ post.date | date: "%b %-d, %Y" }}</span>
                     </p>
                 </article>
@@ -26,7 +26,7 @@ layout: compress
 
             {% include footer.html %}
 
-        </div>
+        </main>
 
     </div>
 

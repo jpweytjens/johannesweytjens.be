@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Cache slow computations that output pandas DataFrames
-description: A decorator to automatically save and load output from slow functions that return DataFrames.
+title: Cache slow computations until their code changes
+description: 'A decorator that saves a slow function''s DataFrame to disk and loads it on the next call. It recomputes only when the function''s code changes, ignoring comments and formatting.'
 permalink: load-else-save/
 date: 2023-04-01
 ---
@@ -20,6 +20,6 @@ By using a caching decorator, you can optimize the handling of large datasets an
 
 Here's an example of a caching decorator that saves the output as parquet files.
 
-{% highlight python %}
-{% include code_snippets/load_else_save.py %}
-{% endhighlight %}
+{% snippet load_else_save.py load_else_save %}
+
+The full script, with a small example that runs it, is [load_else_save.py]({{ site.baseurl }}/snippets/load_else_save.py).

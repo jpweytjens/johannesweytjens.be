@@ -1,53 +1,70 @@
 <!DOCTYPE html>
-<!--#if expr="$HTTP_COOKIE=/fonts\-loaded\=true/" -->
-<html lang="en" class="fonts-loaded" dir="ltr">
-  <!--#else -->
-  <html lang="en" dir="ltr">
-    <!--#endif -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% capture description %}{% if page.description %}{{ page.description | markdownify | strip_html | strip }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ description }}" />
+    <link rel="icon" href="{{ site.baseurl }}/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="{{ site.baseurl }}/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="{{ site.baseurl }}/apple-touch-icon.png" />
+    {% feed_meta %}
+    <link rel="canonical" href="{{ page.url | absolute_url }}" />
+    <!-- Link previews: what LinkedIn, Bluesky and Slack show for a shared page -->
+    <meta property="og:title" content="{{ page.title | default: site.title }}" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="og:url" content="{{ page.url | absolute_url }}" />
+    <meta property="og:type" content="{% if page.date %}article{% else %}website{% endif %}" />
+    <meta property="og:site_name" content="{{ site.title }}" />
+    <meta property="og:image" content="{{ '/images/profile.jpg' | absolute_url }}" />
+    <meta name="twitter:card" content="summary" />
+    {% if page.url == "/" %}
+    <!-- Who the site is about, and the profiles that are also him -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": {{ site.author | jsonify }},
+        "url": {{ '/' | absolute_url | jsonify }},
+        "image": {{ '/images/profile.jpg' | absolute_url | jsonify }},
+        "description": {{ site.description | jsonify }},
+        "sameAs": {{ site.data.settings.icons | map: "link" | jsonify }}
+      }
+    </script>
+    {% endif %}
+    {% if page.layout == "post" %}
+    <!-- What a post is, who wrote it and when, for search results -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": {{ page.title | jsonify }},
+        "description": {{ description | jsonify }},
+        "url": {{ page.url | absolute_url | jsonify }},
+        "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+        "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+        "image": {{ '/images/profile.jpg' | absolute_url | jsonify }},
+        "author": {
+          "@type": "Person",
+          "name": {{ site.author | jsonify }},
+          "url": {{ '/' | absolute_url | jsonify }}
+        }
+      }
+    </script>
+    {% endif %}
+    <link rel="manifest" href="{{ site.baseurl }}/manifest.json" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/style.css" />
+    {% if page.layout == "post" %}
+    <script defer src="{{ site.baseurl }}/js/copy-code.js"></script>
+    {% endif %}
+    {% if jekyll.environment == "production" and site.goatcounter != "" %}
+    <!-- Visit counts without cookies or personal data -->
+    <script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+    {% endif %}
+    {% if page.math %}
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js"></script>
+    {% endif %}
+  </head>
 
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-      <title>{{ site.title }}</title>
-      <meta
-        name="description"
-        content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}"
-      />
-      <link
-        rel="shortcut icon"
-        href="{{ site.baseurl }}/favicon.ico"
-        type="image/x-icon"
-      />
-      <link
-        href="{{ site.baseurl }}/feed.xml"
-        rel="alternate"
-        type="application/atom+xml"
-      />
-      <link rel="canonical" href="{{ site.baseurl }}{{ page.url }}" />
-      <link rel="manifest" href="{{ site.baseurl }}/manifest.json" />
-      <!-- Font preloading for better performance -->
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link rel="preconnect" href="https://cdn.jsdelivr.net">
-      <link rel="preload" href="https://fonts.googleapis.com/css2?family=Mona+Sans:wght@450;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-      <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mona+Sans:wght@450;700&display=swap"></noscript>
-      <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource/monaspace-neon@5.1.0/400.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-      <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/monaspace-neon@5.1.0/400.min.css"></noscript>
-      <link rel="stylesheet" href="{{ site.baseurl}}/css/style.css" />
-      <link rel="stylesheet" href="{{ site.baseurl}}/css/selenized.css" />
-      <link rel="stylesheet" href="{{ site.baseurl}}/css/academicons.css" />
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      />
-      <!-- INLINE CRITICAL CSS -->
-      <style>
-        {% include critical.css %}
-      </style>
-      <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js"></script>
-    </head>
-
-    <body></body>
-  </html>
-</html>
+  <body>

@@ -1,0 +1,30 @@
+/* Syntax colours follow vanzelfsprekend: Paul Tol's muted scheme on the
+   light ground, his light scheme on the dark one, with a link taking the
+   definition colour of its mode. */
+:root {
+  --code-string: #882255;
+  --code-comment: #117733;
+  --code-constant: #AA4499;
+  --code-definition: #332288;
+  --code-keyword: #44AA99;
+  --code-builtin: #997700;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --code-string: #FFAABB;
+    --code-comment: #44BB99;
+    --code-constant: #99DDFF;
+    --code-definition: #77AADD;
+    --code-keyword: #BBCC33;
+    --code-builtin: #EEDD88;
+  }
+}
+
+.highlight {
+  .s, .s1, .s2, .sa, .sb, .sc, .se, .sh, .si, .sx, .sr, .ss, .dl { color: var(--code-string); }
+  .c, .c1, .cm, .cs, .ch, .cp, .cpf, .sd { color: var(--code-comment); font-style: italic; }
+  .m, .mi, .mf, .mh, .mo, .mb, .il, .kc { color: var(--code-constant); }
+  .nf, .nc, .fm { color: var(--code-definition); font-weight: 600; }
+  .k, .kd, .kn, .kp, .kr { color: var(--code-keyword); }
+  .nb, .kt { color: var(--code-builtin); }
+}
