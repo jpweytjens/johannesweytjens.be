@@ -7,6 +7,7 @@ title: Johannes Weytjens CSS - bases on ET Jekyll
 /**************************************/
 @charset "UTF-8";
 $media-tablet : '(max-width: 850px)';
+$media-phone : '(max-width: 360px)';
 @use "social-icons";
 @use "syntax";
 
@@ -228,6 +229,12 @@ table {
     width: 42%;
 }
 
+/* The home page's portrait is a margin note beside the introduction. */
+/*span*/.profile img {
+    height: auto;
+    width: 250px;
+}
+
 /*span*/.sidenote-number {
     counter-increment: sidenote-counter;
 }
@@ -447,6 +454,27 @@ ul.icons {
         width: auto;
     }
 
+    /* The portrait keeps to the right, where the margin was, hanging
+       from the first line as a margin note does. The introduction keeps
+       its own column beside it rather than running under it, and is at
+       least as tall as the portrait so the two never overlap. */
+    .marginnote.profile {
+        margin: 0.3rem 0 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100px;
+    }
+
+    .profile img {
+        width: 100px;
+    }
+
+    p:has(> .profile) {
+        min-height: calc(100px + 0.3rem);
+        padding-right: calc(100px + 1.2rem);
+    }
+
     .publication-container {
         padding-top: 2rem;
         width: 100%;
@@ -480,5 +508,22 @@ ul.icons {
                 }
             }
         }
+    }
+}
+
+/**************************************
+    $MEDIA QUERIES - PHONE
+/**************************************/
+/* On the narrowest phones a column beside the portrait would hold only a
+   few words a line, so the portrait goes and the text takes the width. */
+@media #{$media-phone} {
+
+    .marginnote.profile {
+        display: none;
+    }
+
+    p:has(> .profile) {
+        min-height: 0;
+        padding-right: 0;
     }
 }
