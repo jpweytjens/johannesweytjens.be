@@ -22,6 +22,10 @@ title:
 </ul>
 
 <ul class="icons">
+    <li>
+        <button class="icon-email" type="button" data-user="hi" data-domain="peregrinus.be" hidden>{% include icons/envelope.svg %}<span>Email</span></button>
+        <noscript><div class="icon-email">{% include icons/envelope.svg %}<span>hi at peregrinus dot be</span></div></noscript>
+    </li>
     {% for item in site.data.settings.icons %}
     <li><a href="{{ item.link }}" class="icon-{{ item.icon }}" target="_blank">{% include icons/{{ item.icon }}.svg %}<span>{{ item.name }}</span></a></li>
     {% endfor %}

@@ -492,12 +492,32 @@ ul.icons {
     /* Each icon carries its name, since not every reader knows every
        logo; both stay in ink until hover brings the brand colour.
        No :visited here: it would outrank the brand colour on hover. */
-    a {
+    a,
+    button,
+    noscript > div {
         align-items: center;
         color: var(--ink);
         display: inline-flex;
         gap: 0.35em;
         padding: 5px;
+    }
+
+    /* The email address is a button until pressed (js/email.js), drawn
+       as the links beside it; it stays hidden until the script can join
+       the address. Once revealed, the address takes the link colour. */
+    button {
+        background: none;
+        border: 0;
+        cursor: pointer;
+        font: inherit;
+
+        &[hidden] {
+            display: none;
+        }
+    }
+
+    .revealed span {
+        color: var(--link);
     }
 
     /* Sized as Font Awesome's fa-lg, which the icons replaced. */

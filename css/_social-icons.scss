@@ -37,3 +37,7 @@ $strava-color: #fc4c02;
 .icon-orcid {
     @include social-media-icon($orcid-color, $icon-transition-time);
 }
+
+.icon-email {
+    @include social-media-icon(var(--link-hover), $icon-transition-time);
+}

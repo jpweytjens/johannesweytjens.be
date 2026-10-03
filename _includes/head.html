@@ -59,6 +59,9 @@
     {% if page.layout == "post" %}
     <script defer src="{{ site.baseurl }}/js/copy-code.js"></script>
     {% endif %}
+    {% if page.url == "/" %}
+    <script defer src="{{ site.baseurl }}/js/email.js"></script>
+    {% endif %}
     {% if jekyll.environment == "production" and site.goatcounter != "" %}
     <!-- Visit counts without cookies or personal data -->
     <script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
