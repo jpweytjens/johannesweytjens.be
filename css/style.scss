@@ -182,9 +182,8 @@ pre {
 
 /* The copy button sits in the block's top-right corner, in padding kept
    free for it, so it never covers the first line. It shows on hover or
-   keyboard focus, and always on screens that cannot hover. Like the
-   margin-note marker it is a bare icon in the link colour, since it can
-   be pressed. */
+   keyboard focus, and always on screens that cannot hover. It is a bare
+   icon in the link colour, since it can be pressed. */
 pre:has(> .copy) {
   padding-right: 2.6rem;
   position: relative;
@@ -294,14 +293,15 @@ table {
 
 /* The marker that opens a folded margin note on narrow screens, which
    js/margin-notes.js puts at the note's anchor. It is drawn as the copy
-   button's icon is, in the link colour since it can be pressed. The icon's
+   button's icon is, but in the quieter ink: it stands in the text on every
+   phone, where the link colour would pull the eye from the words. The icon's
    square spans 3 to 21 of its 24 units, so the box is sized and lowered
    for the square itself to stand on the baseline and reach the ascender.
    An invisible pad around it makes a target a thumb can find. */
 /*button*/.note-toggle {
     background: none;
     border: 0;
-    color: var(--link);
+    color: var(--ink-soft);
     cursor: pointer;
     display: none;
     height: 0.99em;
