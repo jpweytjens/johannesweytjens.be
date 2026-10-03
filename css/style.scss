@@ -68,12 +68,14 @@ body {
 }
 
 /* The heading scale is vanzelfsprekend's: each rank a size apart, set
-   close, and balanced so a long title breaks into even lines. */
+   close. A long title fills its lines like the text below it, sparing
+   only a lone last word; balanced lines would stop short of the
+   paragraph's edge and read as a mistake. */
 h1,
 h2,
 h3 {
   line-height: 1.25;
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 h1,
 h2 {
