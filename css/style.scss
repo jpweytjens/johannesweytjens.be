@@ -180,17 +180,19 @@ pre {
 
 /* The copy button sits in the block's top-right corner, in padding kept
    free for it, so it never covers the first line. It shows on hover or
-   keyboard focus, and always on screens that cannot hover. */
+   keyboard focus, and always on screens that cannot hover. Like the
+   margin-note marker it is a bare icon in the link colour, since it can
+   be pressed. */
 pre:has(> .copy) {
   padding-right: 2.6rem;
   position: relative;
 }
 pre > .copy {
   align-items: center;
-  background: color-mix(in srgb, var(--ink) 6%, var(--ground));
+  background: none;
   border: 0;
   border-radius: 4px;
-  color: var(--ink-soft);
+  color: var(--link);
   cursor: pointer;
   display: flex;
   height: 1.6rem;
