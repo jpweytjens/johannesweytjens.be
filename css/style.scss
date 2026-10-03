@@ -288,6 +288,42 @@ table {
     width: 250px;
 }
 
+/* The marker that opens a folded margin note on narrow screens, which
+   js/margin-notes.js puts at the note's anchor. It is drawn as the copy
+   button's icon is, in the link colour since it can be pressed. The icon's
+   square spans 3 to 21 of its 24 units, so the box is sized and lowered
+   for the square itself to stand on the baseline and reach the ascender.
+   An invisible pad around it makes a target a thumb can find. */
+/*button*/.note-toggle {
+    background: none;
+    border: 0;
+    color: var(--link);
+    cursor: pointer;
+    display: none;
+    height: 0.99em;
+    margin: 0 -0.04em 0 0.1em;
+    padding: 0;
+    position: relative;
+    vertical-align: -0.125em;
+    width: 0.99em;
+
+    &::after {
+        content: "";
+        inset: -0.7rem -0.45rem;
+        position: absolute;
+    }
+
+    &:hover {
+        color: var(--link-hover);
+    }
+
+    svg {
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+}
+
 /*span*/.sidenote-number {
     counter-increment: sidenote-counter;
 }
@@ -497,6 +533,20 @@ ul.icons {
         float: none;
         margin: 0.5rem 0 0.9rem 1.5rem;
         width: auto;
+    }
+
+    /* With the script, a note waits below its paragraph, folded until
+       its marker opens it, and sits close under the text it belongs to. */
+    .note-toggle {
+        display: inline-block;
+    }
+
+    .marginnote.folded {
+        display: none;
+    }
+
+    :is(p, li) + .marginnote {
+        margin-top: -0.4rem;
     }
 
     /* The portrait keeps to the right, where the margin was, hanging
