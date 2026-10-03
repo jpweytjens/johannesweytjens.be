@@ -62,6 +62,9 @@ body {
   font-weight: 450;
   height: 100%;
   margin: 0;
+  /* Weigh a paragraph's last lines together, so none ends on a lone
+     word; browsers without it break line by line as before. */
+  text-wrap: pretty;
 }
 
 /* The heading scale is vanzelfsprekend's: each rank a size apart, set
