@@ -23,6 +23,6 @@ title:
 
 <ul class="icons">
     {% for item in site.data.settings.icons %}
-    <li><a href="{{ item.link }}" class="icon-{{ item.icon }}" target="_blank" aria-label="{{ item.name }}">{% include icons/{{ item.icon }}.svg %}</a></li>
+    <li><a href="{{ item.link }}" class="icon-{{ item.icon }}" target="_blank">{% include icons/{{ item.icon }}.svg %}<span>{{ item.name }}</span></a></li>
     {% endfor %}
 </ul>

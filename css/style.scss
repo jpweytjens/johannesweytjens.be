@@ -443,12 +443,17 @@ ul.icons {
 
     li {
         display: inline-block;
+        margin-right: 0.6rem;
     }
 
-    /* No :visited here: it would outrank the brand colour on hover. */
+    /* Each icon carries its name, since not every reader knows every
+       logo; both stay in ink until hover brings the brand colour.
+       No :visited here: it would outrank the brand colour on hover. */
     a {
+        align-items: center;
         color: var(--ink);
-        display: inline-block;
+        display: inline-flex;
+        gap: 0.35em;
         padding: 5px;
     }
 
@@ -456,6 +461,10 @@ ul.icons {
     svg {
         display: block;
         height: 1.333em;
+    }
+
+    span {
+        font-size: 0.85rem;
     }
 }
 
