@@ -4,6 +4,11 @@ title: Publications
 description: Publications
 ---
 
+### Dissertation
+* <a href="https://biblio.ugent.be/publication/01JZ0FKKB552K6A14DEKSEET9P">From Payment to Purpose: Using Financial Transaction Data for Economic Research on Consumption Dynamics</a><br>
+(supervised by Koen Schoors and Kris Boudt)<br>
+_PhD thesis, Ghent University (2025)_
+
 ### Work in progress
 * Myopic Loss Aversion and the Excess Consumption Puzzle(s)<br>
 (with Milan van den Heuvel and Koen Schoors)
