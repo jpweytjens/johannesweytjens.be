@@ -220,8 +220,12 @@ pre {
 .highlight > .copy.copied {
   opacity: 1;
 }
-.highlight > .copy:hover {
-  color: var(--link-hover);
+/* A tap leaves :hover behind on a touch screen, so only a pointer that can
+   hover gets the hover colour, here and on the margin-note marker. */
+@media (hover: hover) {
+  .highlight > .copy:hover {
+    color: var(--link-hover);
+  }
 }
 .highlight > .copy.copied {
   color: var(--link);
@@ -326,8 +330,10 @@ table {
         position: absolute;
     }
 
-    &:hover {
-        color: var(--link-hover);
+    @media (hover: hover) {
+        &:hover {
+            color: var(--link-hover);
+        }
     }
 
     svg {
