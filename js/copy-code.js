@@ -31,5 +31,5 @@ for (const pre of document.querySelectorAll(".highlight > pre")) {
     }, 2000);
   });
 
-  pre.append(button);
+  pre.after(button);
 }
