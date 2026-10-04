@@ -55,8 +55,12 @@
     {% endif %}
     <link rel="manifest" href="{{ site.baseurl }}/manifest.json" />
     <link rel="stylesheet" href="{{ site.baseurl }}/css/style.css" />
+    <script defer src="{{ site.baseurl }}/js/margin-notes.js"></script>
     {% if page.layout == "post" %}
     <script defer src="{{ site.baseurl }}/js/copy-code.js"></script>
+    {% endif %}
+    {% if page.url == "/" %}
+    <script defer src="{{ site.baseurl }}/js/email.js"></script>
     {% endif %}
     {% if jekyll.environment == "production" and site.goatcounter != "" %}
     <!-- Visit counts without cookies or personal data -->

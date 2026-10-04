@@ -33,3 +33,8 @@ _Humanities and Social Sciences Communications (2025)_<br>
 1. <a href="https://gompel-svacina.eu/product/artificiele-intelligentie-en-maatschappij/">"AI en de Arbeidsmarkt"</a><br>
 (with Stijn Baert, edited by Jan De Bruyne and Nicolas Bouteca)<br>
 _Artificiële intelligentie en maatschappij_<br>(ISBN 9789463712736)
+
+### Dissertation
+* <a href="https://biblio.ugent.be/publication/01JZ0FKKB552K6A14DEKSEET9P">From Payment to Purpose: Using Financial Transaction Data for Economic Research on Consumption Dynamics</a><br>
+(supervised by Koen Schoors and Kris Boudt)<br>
+_PhD thesis, Ghent University (2025)_

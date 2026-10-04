@@ -62,15 +62,20 @@ body {
   font-weight: 450;
   height: 100%;
   margin: 0;
+  /* Weigh a paragraph's last lines together, so none ends on a lone
+     word; browsers without it break line by line as before. */
+  text-wrap: pretty;
 }
 
 /* The heading scale is vanzelfsprekend's: each rank a size apart, set
-   close, and balanced so a long title breaks into even lines. */
+   close. A long title fills its lines like the text below it, sparing
+   only a lone last word; balanced lines would stop short of the
+   paragraph's edge and read as a mistake. */
 h1,
 h2,
 h3 {
   line-height: 1.25;
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 h1,
 h2 {
@@ -177,17 +182,18 @@ pre {
 
 /* The copy button sits in the block's top-right corner, in padding kept
    free for it, so it never covers the first line. It shows on hover or
-   keyboard focus, and always on screens that cannot hover. */
+   keyboard focus, and always on screens that cannot hover. It is a bare
+   icon in the link colour, since it can be pressed. */
 pre:has(> .copy) {
   padding-right: 2.6rem;
   position: relative;
 }
 pre > .copy {
   align-items: center;
-  background: color-mix(in srgb, var(--ink) 6%, var(--ground));
+  background: none;
   border: 0;
   border-radius: 4px;
-  color: var(--ink-soft);
+  color: var(--link);
   cursor: pointer;
   display: flex;
   height: 1.6rem;
@@ -283,6 +289,43 @@ table {
 /*span*/.profile img {
     height: auto;
     width: 250px;
+}
+
+/* The marker that opens a folded margin note on narrow screens, which
+   js/margin-notes.js puts at the note's anchor. It is drawn as the copy
+   button's icon is, but in the quieter ink: it stands in the text on every
+   phone, where the link colour would pull the eye from the words. The icon's
+   square spans 3 to 21 of its 24 units, so the box is sized and lowered
+   for the square itself to stand on the baseline and reach the ascender.
+   An invisible pad around it makes a target a thumb can find. */
+/*button*/.note-toggle {
+    background: none;
+    border: 0;
+    color: var(--ink-soft);
+    cursor: pointer;
+    display: none;
+    height: 0.99em;
+    margin: 0 -0.04em 0 0.1em;
+    padding: 0;
+    position: relative;
+    vertical-align: -0.125em;
+    width: 0.99em;
+
+    &::after {
+        content: "";
+        inset: -0.7rem -0.45rem;
+        position: absolute;
+    }
+
+    &:hover {
+        color: var(--link-hover);
+    }
+
+    svg {
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
 }
 
 /*span*/.sidenote-number {
@@ -443,19 +486,48 @@ ul.icons {
 
     li {
         display: inline-block;
+        margin-right: 0.6rem;
     }
 
-    /* No :visited here: it would outrank the brand colour on hover. */
-    a {
+    /* Each icon carries its name, since not every reader knows every
+       logo; both stay in ink until hover brings the brand colour.
+       No :visited here: it would outrank the brand colour on hover. */
+    a,
+    button,
+    noscript > div {
+        align-items: center;
         color: var(--ink);
-        display: inline-block;
+        display: inline-flex;
+        gap: 0.35em;
         padding: 5px;
+    }
+
+    /* The email address is a button until pressed (js/email.js), drawn
+       as the links beside it; it stays hidden until the script can join
+       the address. Once revealed, the address takes the link colour. */
+    button {
+        background: none;
+        border: 0;
+        cursor: pointer;
+        font: inherit;
+
+        &[hidden] {
+            display: none;
+        }
+    }
+
+    .revealed span {
+        color: var(--link);
     }
 
     /* Sized as Font Awesome's fa-lg, which the icons replaced. */
     svg {
         display: block;
         height: 1.333em;
+    }
+
+    span {
+        font-size: 0.85rem;
     }
 }
 
@@ -485,6 +557,20 @@ ul.icons {
         float: none;
         margin: 0.5rem 0 0.9rem 1.5rem;
         width: auto;
+    }
+
+    /* With the script, a note waits below its paragraph, folded until
+       its marker opens it, and sits close under the text it belongs to. */
+    .note-toggle {
+        display: inline-block;
+    }
+
+    .marginnote.folded {
+        display: none;
+    }
+
+    :is(p, li) + .marginnote {
+        margin-top: -0.4rem;
     }
 
     /* The portrait keeps to the right, where the margin was, hanging
