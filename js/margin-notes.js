@@ -39,15 +39,19 @@ const markers = notes.map((note, index) => {
 });
 
 // Narrow, a note sits after the paragraph that holds its marker, or at the
-// end of its list item, so it never splits a sentence; wide, it goes back
-// beside its marker to float.
+// end of its list item, so it never splits a sentence, and a paragraph's
+// notes keep their order; wide, it goes back beside its marker to float.
 function place() {
+  const last = new Map();
   notes.forEach((note, index) => {
     const marker = markers[index];
     const block = marker.closest("p, li");
     if (!narrow.matches || !block) marker.after(note);
     else if (block.matches("li")) block.append(note);
-    else block.after(note);
+    else {
+      (last.get(block) ?? block).after(note);
+      last.set(block, note);
+    }
   });
 }
 

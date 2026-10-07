@@ -181,14 +181,23 @@ pre {
 }
 
 /* The copy button sits in the block's top-right corner, in padding kept
-   free for it, so it never covers the first line. It shows on hover or
-   keyboard focus, and always on screens that cannot hover. It is a bare
-   icon in the link colour, since it can be pressed. */
-pre:has(> .copy) {
-  padding-right: 2.6rem;
+   free for it, so it never covers the first line. It hangs from the block's
+   wrapper rather than the pre, since a pre that scrolls sideways would carry
+   the button off with its code; the wrapper takes the pre's width instead,
+   so its corner is the code's. It shows on hover or keyboard focus, and
+   always on screens that cannot hover. It is a bare icon in the link
+   colour, since it can be pressed. */
+.highlight:has(> .copy) {
+  max-width: calc(100% + 45% + 1.5rem); /* the pre's own cap, past its indent */
   position: relative;
+  width: max-content;
 }
-pre > .copy {
+.highlight:has(> .copy) > pre {
+  max-width: none;
+  padding-right: 2.6rem;
+  width: auto;
+}
+.highlight > .copy {
   align-items: center;
   background: none;
   border: 0;
@@ -206,19 +215,23 @@ pre > .copy {
   transition: opacity 0.15s;
   width: 1.6rem;
 }
-pre:hover > .copy,
-pre > .copy:focus-visible,
-pre > .copy.copied {
+.highlight:hover > .copy,
+.highlight > .copy:focus-visible,
+.highlight > .copy.copied {
   opacity: 1;
 }
-pre > .copy:hover {
-  color: var(--link-hover);
+/* A tap leaves :hover behind on a touch screen, so only a pointer that can
+   hover gets the hover colour, here and on the margin-note marker. */
+@media (hover: hover) {
+  .highlight > .copy:hover {
+    color: var(--link-hover);
+  }
 }
-pre > .copy.copied {
+.highlight > .copy.copied {
   color: var(--link);
 }
 @media (hover: none) {
-  pre > .copy {
+  .highlight > .copy {
     opacity: 1;
   }
 }
@@ -317,8 +330,10 @@ table {
         position: absolute;
     }
 
-    &:hover {
-        color: var(--link-hover);
+    @media (hover: hover) {
+        &:hover {
+            color: var(--link-hover);
+        }
     }
 
     svg {
@@ -549,6 +564,10 @@ ul.icons {
         margin-left: 0;
         max-width: 100%;
         width: auto;
+    }
+
+    .highlight:has(> .copy) {
+        max-width: 100%;
     }
 
     .marginnote,
